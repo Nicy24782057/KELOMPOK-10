@@ -1,74 +1,71 @@
-# Repositori Proyek
+# Evidence M02 — Penyiapan Repositori dan Struktur Modul
 
-Repositori ini menjadi tempat kerja bersama untuk pengembangan modul AI, backend, firmware ESP32, konfigurasi, data, pengujian, dokumentasi, dan bukti pengerjaan proyek.
+## Informasi checkpoint
 
-## Struktur direktori
+| Item | Keterangan |
+|---|---|
+| Task/Issue | M02 |
+| Pelaksana | Putu |
+| Tanggal penyiapan | 26 Oktober 2026 |
+| Pemantau PM | Nicy |
+| Status struktur lokal | Selesai |
+| Status review PM | Menunggu pemeriksaan Nicy |
 
-```text
-.
-├── ai/                         # Pengembangan model dan integrasi AI
-├── backend/                    # API, layanan aplikasi, dan integrasi backend
-├── firmware/
-│   └── esp32/                  # Program dan konfigurasi firmware ESP32
-├── configs/                    # Konfigurasi non-rahasia dan contoh konfigurasi
-├── data/                       # Data pengamatan, sampel, dan data pengujian
-├── tests/                      # Pengujian unit, integrasi, dan validasi
-├── docs/                       # Dokumentasi teknis dan keputusan proyek
-├── evidence/
-│   └── M02/
-│       ├── README.md           # Ringkasan hasil penyiapan M02
-│       └── log-aktivitas.md    # Log aktivitas Putu pada M02
-├── .gitignore                  # Berkas yang tidak boleh masuk ke Git
-└── README.md                   # Petunjuk utama repositori
-```
+## Ringkasan pekerjaan
 
-Berkas `.gitkeep` digunakan sementara pada folder yang belum berisi berkas kerja. Setelah folder memiliki berkas yang sebenarnya, `.gitkeep` dapat dihapus.
+Struktur awal repositori telah dibuat untuk memisahkan pekerjaan AI, backend, firmware ESP32, konfigurasi, data, pengujian, dokumentasi, dan bukti checkpoint. Berkas `README.md` utama berisi peta direktori, langkah awal penggunaan, alur commit, serta petunjuk penanganan kredensial. Berkas `.gitignore` disiapkan untuk mengecualikan lingkungan lokal, cache, hasil build, log, kredensial, dan artefak model berukuran besar.
 
-## Langkah awal penggunaan
+Folder yang masih kosong diberi `.gitkeep` sesuai ketentuan. Penanda tersebut dapat dihapus ketika folder mulai berisi berkas kerja.
 
-1. Kloning repositori dan masuk ke direktori proyek.
+## Pemeriksaan akses
 
-   ```bash
-   git clone <URL-REPOSITORI>
-   cd <NAMA-REPOSITORI>
-   ```
+Pemeriksaan akses remote harus dilakukan pada layanan Git yang digunakan tim karena URL remote dan daftar anggota tidak tersedia di workspace ini. Putu perlu memverifikasi hal berikut sebelum push:
 
-2. Periksa status dan cabang kerja sebelum membuat perubahan.
+- Putu dapat membaca, membuat branch, commit, dan push ke repositori.
+- Nicy dapat membaca repositori dan meninjau commit M02.
+- Anggota lain memperoleh izin sesuai kebutuhan tugasnya.
+- Branch utama dan aturan pull request mengikuti kesepakatan tim.
 
-   ```bash
-   git status
-   git branch --show-current
-   ```
+Status pemeriksaan pada workspace ini: **belum dapat diverifikasi secara remote**.
 
-3. Simpan pekerjaan sesuai modulnya: kode AI di `ai/`, layanan di `backend/`, dan program ESP32 di `firmware/esp32/`.
+## Kendala
 
-4. Letakkan konfigurasi yang tidak rahasia atau contoh konfigurasi di `configs/`. Kredensial, token, kata sandi, dan berkas `.env` harus tetap lokal dan tidak boleh di-commit.
+Tidak ada kendala pada pembuatan struktur dan berkas lokal. Kendala yang masih perlu ditindaklanjuti adalah pemeriksaan akses remote serta pengisian URL commit setelah perubahan di-push.
 
-5. Simpan data pengamatan atau data uji yang memang perlu dilacak di `data/`. Jangan memasukkan data pribadi atau data berukuran besar tanpa persetujuan tim.
+## Hasil dan lokasi berkas
 
-6. Jalankan pengujian yang relevan dari `tests/` sebelum membuat commit.
+| Lokasi | Kegunaan |
+|---|---|
+| `README.md` | Petunjuk awal dan penjelasan struktur repositori |
+| `.gitignore` | Pengabaian berkas lokal, lingkungan pengembangan, dan kredensial |
+| `ai/.gitkeep` | Penanda folder pengembangan AI |
+| `backend/.gitkeep` | Penanda folder backend dan integrasi |
+| `firmware/esp32/.gitkeep` | Penanda folder program ESP32 |
+| `configs/.gitkeep` | Penanda folder konfigurasi |
+| `data/.gitkeep` | Penanda folder data pengamatan dan pengujian |
+| `tests/.gitkeep` | Penanda folder pengujian |
+| `docs/.gitkeep` | Penanda folder dokumentasi teknis |
+| `evidence/M02/README.md` | Ringkasan hasil penyiapan dan status review |
+| `evidence/M02/log-aktivitas.md` | Log aktivitas Putu pada M02 |
 
-7. Catat perubahan penting pada `docs/` dan bukti setiap checkpoint pada `evidence/`.
+## Bukti pengerjaan / commit
 
-## Alur commit
+Commit SHA/URL: **diisi setelah commit pelaporan M02 di-push ke remote**.
 
-Gunakan pesan commit yang singkat dan menjelaskan perubahan, misalnya:
+Contoh pesan commit:
 
 ```text
 chore: siapkan struktur repositori M02
 ```
 
-Sebelum push, pastikan tidak ada kredensial atau berkas lokal yang ikut terlacak:
+## Review PM
 
-```bash
-git status --short
-git diff --cached --check
-```
+Bagian ini diisi Nicy setelah pemeriksaan.
 
-## Pemeriksaan akses
-
-Putu perlu memastikan anggota yang ditugaskan memiliki akses baca/tulis sesuai perannya dan dapat melakukan push ke remote. Nicy memeriksa kelengkapan struktur, petunjuk awal, pengaturan akses, serta kendala yang dicatat pada `evidence/M02/README.md`.
-
-## Pelaporan M02
-
-Ringkasan pekerjaan dan status review tersedia di [evidence/M02/README.md](evidence/M02/README.md), sedangkan aktivitas harian dicatat pada [evidence/M02/log-aktivitas.md](evidence/M02/log-aktivitas.md).
+| Pemeriksaan | Status | Catatan |
+|---|---|---|
+| Struktur folder lengkap | Menunggu review |  |
+| README utama jelas | Menunggu review |  |
+| `.gitignore` diperiksa | Menunggu review |  |
+| Akses anggota diperiksa | Menunggu review remote |  |
+| Kendala tercatat | Menunggu review |  |
