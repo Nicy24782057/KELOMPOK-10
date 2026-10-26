@@ -1,0 +1,13 @@
+{
+  "topic": "kelompok10/traffic/trigger",
+  "message_id": "trg-20261026-0001",
+  "message_type": "trigger",
+  "schema_version": "1.0",
+  "device_id": "esp32-01",
+  "session_id": "session-20261026-0001",
+  "turn_id": "turn-1",
+  "phase_id": "A",
+  "requested_at": "2026-10-26T14:00:00+07:00",
+  "measurement_window_seconds": 60,
+  "request_reason": "next_turn_measurement"
+}

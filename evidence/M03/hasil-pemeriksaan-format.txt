@@ -1,0 +1,33 @@
+HASIL PEMERIKSAAN FORMAT M03
+Tanggal pemeriksaan: 26 - October - 2026
+Pelaksana: Putu
+PM/Pemeriksa: Nicy
+
+1. Berkas yang diperiksa
+- configs/control.example.json
+- configs/mqtt/trigger.example.json
+- configs/mqtt/measurement.example.json
+- configs/mqtt/plan.example.json
+- configs/mqtt/ack.example.json
+- configs/mqtt/status.example.json
+
+2. Hasil pemeriksaan
+[PASS] Semua enam berkas dapat dibaca sebagai JSON UTF-8.
+[PASS] Pesan memiliki message_id, message_type, schema_version, dan device_id.
+[PASS] Identitas session_id, turn_id, dan phase_id tersedia pada pesan yang berkaitan dengan sesi dan fase.
+[PASS] Waktu menggunakan format ISO 8601 dengan zona waktu Asia/Jakarta.
+[PASS] Topik MQTT tercantum pada setiap contoh pesan.
+[PASS] Contoh measurement membedakan hasil valid dengan jumlah kendaraan nol melalui measurement_status=valid, vehicle_count=0, dan vehicle_count_status=valid_zero.
+[PASS] Status unavailable dan invalid dijelaskan dengan aturan bahwa vehicle_count serta density_ratio bernilai null.
+[PASS] Contoh plan memuat kategori, kepadatan, fase, masa berlaku, durasi, dan sumber durasi.
+[PASS] Contoh ACK memuat ID pesan yang dikonfirmasi, status, waktu, dan alasan.
+[PASS] Contoh status memuat kondisi perangkat, fase berjalan, rencana aktif, dan fallback.
+[PASS] Nilai durasi, pemetaan fase, dan fallback diberi penanda sementara; tidak diklaim sebagai hasil kalibrasi.
+
+3. Temuan dan perbaikan
+- Format awal sebelumnya masih memakai contoh YAML dan belum memiliki control.example.json. Perbaikan: konfigurasi M03 dipusatkan pada berkas JSON sesuai ketentuan.
+- Contoh measurement sebelumnya belum membedakan jumlah kendaraan nol dari pengukuran tidak tersedia/tidak valid. Perbaikan: ditambahkan measurement_status, vehicle_count_status, nilai null untuk hasil yang tidak tersedia/tidak valid, dan status_definitions.
+- Pengujian publish/subscribe dengan broker serta pencocokan program ESP32 belum dilakukan pada M03. Pengujian tersebut menjadi tindak lanjut pada kartu integrasi.
+
+4. Kesimpulan
+Format M03 terbaca dan informasi antarpesan konsisten untuk dijadikan acuan pembuatan kode backend, AI, dan ESP32. Nilai parameter yang belum dikalibrasi masih bersifat sementara.

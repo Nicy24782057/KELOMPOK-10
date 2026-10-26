@@ -1,0 +1,14 @@
+{
+  "topic": "kelompok10/device/ack",
+  "message_id": "ack-20261026-0001",
+  "message_type": "ack",
+  "schema_version": "1.0",
+  "device_id": "esp32-01",
+  "session_id": "session-20261026-0001",
+  "turn_id": "turn-1",
+  "phase_id": "A",
+  "acknowledged_message_id": "pln-20261026-0001",
+  "ack_status": "accepted",
+  "handled_at": "2026-10-26T14:00:14+07:00",
+  "reason": null
+}

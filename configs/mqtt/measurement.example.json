@@ -1,0 +1,26 @@
+{
+  "topic": "kelompok10/traffic/measurement",
+  "message_id": "msr-20261026-0001",
+  "message_type": "measurement",
+  "schema_version": "1.0",
+  "device_id": "esp32-01",
+  "session_id": "session-20261026-0001",
+  "turn_id": "turn-1",
+  "phase_id": "A",
+  "measured_at": "2026-10-26T14:00:12+07:00",
+  "measurement_window_seconds": 60,
+  "measurement_status": "valid",
+  "vehicle_count": 0,
+  "vehicle_count_status": "valid_zero",
+  "lane_count": 2,
+  "density_ratio": 0.0,
+  "category": "rendah",
+  "source": "ai",
+  "confidence": 0.98,
+  "invalid_reason": null,
+  "status_definitions": {
+    "valid": "Hasil dapat dipakai; vehicle_count boleh bernilai 0.",
+    "unavailable": "Pengukuran tidak tersedia; vehicle_count dan density_ratio harus null.",
+    "invalid": "Pengukuran ada tetapi tidak dapat dipercaya; vehicle_count dan density_ratio harus null."
+  }
+}

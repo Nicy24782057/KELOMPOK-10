@@ -1,0 +1,21 @@
+{
+  "topic": "kelompok10/traffic/plan",
+  "message_id": "pln-20261026-0001",
+  "message_type": "control_plan",
+  "schema_version": "1.0",
+  "device_id": "esp32-01",
+  "session_id": "session-20261026-0001",
+  "turn_id": "turn-1",
+  "phase_id": "A",
+  "created_at": "2026-10-26T14:00:13+07:00",
+  "valid_until": "2026-10-26T14:01:13+07:00",
+  "measurement_status": "valid",
+  "density_ratio": 0.0,
+  "category": "rendah",
+  "green_duration_seconds": 15,
+  "yellow_duration_seconds": 3,
+  "all_red_clearance_seconds": 2,
+  "duration_source": "temporary_config",
+  "fallback_active": false,
+  "plan_version": 1
+}

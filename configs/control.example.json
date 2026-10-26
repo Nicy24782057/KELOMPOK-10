@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "config_id": "control-example-001",
+  "config_status": "temporary_example",
+  "notes": "Contoh awal. Durasi dan pemetaan fase belum merupakan hasil kalibrasi.",
+  "intersection_id": "simpang-01",
+  "timing": {
+    "timezone": "Asia/Jakarta",
+    "measurement_window_seconds": 60,
+    "plan_validity_seconds": 60,
+    "ack_timeout_seconds": 10
+  },
+  "phase_mapping": [
+    {
+      "phase_id": "A",
+      "turn_id": "turn-1",
+      "approaches": [
+        "approach-1"
+      ],
+      "description": "Contoh fase untuk giliran 1",
+      "temporary": true
+    },
+    {
+      "phase_id": "B",
+      "turn_id": "turn-2",
+      "approaches": [
+        "approach-2"
+      ],
+      "description": "Contoh fase untuk giliran 2",
+      "temporary": true
+    },
+    {
+      "phase_id": "C",
+      "turn_id": "turn-3",
+      "approaches": [
+        "approach-3"
+      ],
+      "description": "Contoh fase untuk giliran 3",
+      "temporary": true
+    }
+  ],
+  "duration_parameters": {
+    "category_durations_seconds": {
+      "rendah": 15,
+      "sedang": 30,
+      "tinggi": 45
+    },
+    "yellow_seconds": 3,
+    "all_red_clearance_seconds": 2,
+    "source": "temporary_example_pending_calibration"
+  },
+  "static_fallback": {
+    "enabled": true,
+    "activation_conditions": [
+      "measurement_unavailable",
+      "measurement_invalid",
+      "backend_unreachable",
+      "mqtt_timeout"
+    ],
+    "sequence": [
+      {
+        "turn_id": "turn-1",
+        "phase_id": "A",
+        "green_seconds": 30
+      },
+      {
+        "turn_id": "turn-2",
+        "phase_id": "B",
+        "green_seconds": 30
+      },
+      {
+        "turn_id": "turn-3",
+        "phase_id": "C",
+        "green_seconds": 30
+      }
+    ],
+    "source": "temporary_example_pending_calibration"
+  }
+}

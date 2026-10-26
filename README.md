@@ -39,6 +39,8 @@ KELOMPOK-10/
 
 Gunakan path lengkap dari root `KELOMPOK-10/`. Contoh: program CCTV disimpan sebagai `ai/cctv_reader.py`, kode ESP32 sebagai `firmware/esp32/main.ino`, konfigurasi MQTT sebagai `configs/mqtt/contoh-pesan.json`, dan laporan pengujian sebagai `docs/pengujian/laporan.md`. Bukti setiap kartu disimpan pada `evidence/M01/` sampai `evidence/M16/`; kartu gabungan tetap memakai folder kartu yang sama. Hasil M01 yang sudah tersedia harus dipertahankan.
 
+Untuk M03, gunakan `configs/control.example.json` sebagai contoh konfigurasi pengendalian dan berkas `configs/mqtt/*.example.json` sebagai acuan payload. Hasil pemeriksaan, ringkasan, dan log M03 berada di `evidence/M03/`.
+
 ## Langkah awal
 
 ```bash
