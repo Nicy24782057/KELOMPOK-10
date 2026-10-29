@@ -1,9 +1,0 @@
-# M04-B: lingkungan sementara Windows 11, Python 3.14.3, CPU.
-# Empat dependensi utama dikunci berdasarkan lingkungan yang diuji.
-# Snapshot seluruh paket: evidence/M04/lingkungan-ai.txt.
---extra-index-url https://download.pytorch.org/whl/cpu
-
-torch==2.14.1+cpu
-torchvision==0.29.1+cpu
-opencv-python==5.0.0.93
-ultralytics==8.4.189
