@@ -1,0 +1,14 @@
+## Minggu 2 — Penyusunan paket HLD seluruh anggota
+
+Nama pada kolom **PIC bagian** mengikuti penugasan tim. Seluruh baris berikut merekap isi yang disusun dalam paket lengkap ini, dengan Review PM serta pemeriksaan mandiri anggota dicatat ketika dilakukan.
+
+| Tanggal penyusunan | Sprint/minggu | ID tugas | PIC bagian | Aktivitas penyusunan dokumen | Hasil/progres | Lokasi bukti | Tindak lanjut |
+|---|---|---|---|---|---|---|---|
+| 29 Oktober 2026 | S01, minggu 2 | W02-T01 | Nicy Putra Pratama | Menyusun arsitektur keseluruhan, pembagian fungsi/lingkungan, antarmuka/data, kondisi gagal, serta menyatukan seluruh bagian HLD. | Bagian 3 dan HLD gabungan versi 0.2 tersedia; isi W02-T01–W02-T05 tersusun dalam satu dokumen. Status: Review. | `KELOMPOK-10/docs/perencanaan/hld.md` — Bagian 3 dan penyatuan dokumen. | Mencatat Review PM; menindaklanjuti temuan tiap bidang bila ada. |
+| 29 Oktober 2026 | S01, minggu 2 | W02-T02 | Rizky Bintang Fadillah | Penyusunan bagian CCTV/AI sesuai tanggung jawab PIC: diagram, input/proses/output, buffer/frame, validasi, YOLO, ROI, hitungan, kepadatan, serta metadata. | Bagian 4.1 lengkap dan tergabung dalam HLD. Status: Review. | `KELOMPOK-10/docs/perencanaan/hld.md` — Bagian 4.1. | Pemeriksaan bidang AI dan pendetailan prosedur/konfigurasi pada tahap berikutnya. |
+| 29 Oktober 2026 | S01, minggu 2 | W02-T03 | Putu Radit Ardika | Penyusunan bagian backend/komunikasi: diagram pertukaran, kategori/durasi, parameter offline, MQTT, rencana, ACK/status, validasi, duplikasi, dan keterlambatan. | Bagian 4.2 lengkap dan tergabung dalam HLD. Status: Review. | `KELOMPOK-10/docs/perencanaan/hld.md` — Bagian 4.2. | Pemeriksaan antarmuka; kontrak field/topic dirinci pada minggu 3. |
+| 29 Oktober 2026 | S01, minggu 2 | W02-T04 | Ramdhani | Penyusunan bagian perangkat: diagram blok, ESP32/LED/OLED, urutan keadaan, waktu nominal, lock, statis lokal, dan pemulihan. | Bagian 4.3 lengkap dan tergabung dalam HLD. Status: Review. | `KELOMPOK-10/docs/perencanaan/hld.md` — Bagian 4.3. | Pemeriksaan bidang perangkat; rincian pin/catu daya/toleransi pada LLD dan implementasi. |
+| 29 Oktober 2026 | S01, minggu 2 | W02-T05 | Ikrom Safei | Penyusunan bagian pencatatan: diagram, kelompok data, identitas/waktu, persistensi, validasi, independensi kendali, dan rujukan dataset/bukti. | Bagian 4.4 lengkap dan tergabung dalam HLD. Status: Review. | `KELOMPOK-10/docs/perencanaan/hld.md` — Bagian 4.4. | Pemeriksaan keterlacakan; skema/template/rencana uji dilengkapi pada minggu 3. |
+| 29 Oktober 2026 | S01, minggu 2 | Pelaporan minggu 2 | Nicy Putra Pratama — koordinator | Memperbarui README dan log sesuai HLD seluruh anggota, menyiapkan struktur pengumpulan serta paket arsip. | Ringkasan lima tugas tersedia, status isi Review, dan format commit konsisten. | `KELOMPOK-10/evidence/S01/README.md`; `KELOMPOK-10/evidence/S01/log-aktivitas.md` | Mencatat Review PM dan URL commit setelah pemeriksaan serta push dilaksanakan. |
+
+
