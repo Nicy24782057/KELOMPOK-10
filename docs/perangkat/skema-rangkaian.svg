@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="1120" viewBox="0 0 1180 1120">
+<rect width="1180" height="1120" fill="#fff"/>
+<style>text{font-family:Arial,DejaVu Sans,sans-serif;fill:#13283f}.wire{fill:none;stroke:#243b53;stroke-width:3}.small{font-size:16px}.label{font-size:19px}.pin{font-size:20px;font-weight:bold}</style>
+<text x="50" y="43" font-size="28" font-weight="bold">S01 minggu 3 • Skema sambungan prototipe</text>
+<text x="50" y="72" class="small">W03-T01 • Ramdhani • ESP32-DevKitC V4 / WROOM-32D • Pin map 0.1</text>
+<rect x="50" y="94" width="280" height="44" rx="6" fill="#eff5fa" stroke="#a3b5c6"/>
+<text x="68" y="122" class="label">USB 5 V • satu sumber daya</text>
+<path class="wire" d="M190 138 V150"/>
+<rect x="50" y="150" width="230" height="810" rx="12" fill="#edf3f8" stroke="#52718f" stroke-width="2"/>
+<text x="66" y="180" class="label" font-weight="bold">ESP32-DevKitC V4</text>
+<text x="69" y="765" font-size="20" font-weight="bold">WROOM-32D</text>
+<text x="69" y="788" class="small">GPIO = nomor pin logika</text>
+<path class="wire" d="M950 205 V1005 H360 V924 H280"/>
+<path class="wire" d="M950 1005 V1030"/>
+<path class="wire" d="M926 1030 H974 M933 1038 H967 M940 1046 H960"/>
+<text x="977" y="1038" class="label">GND bersama</text>
+
+<text x="261" y="222" class="pin" text-anchor="end">GPIO25</text>
+<circle cx="280" cy="215" r="4" fill="#243b53"/>
+<path class="wire" d="M280 215 H385 M485 215 H625 M685 215 H950"/>
+<rect x="385" y="204" width="100" height="22" fill="#fff" stroke="#243b53" stroke-width="2"/>
+<text x="435" y="196" class="small" text-anchor="middle">R1 • 330 Ω</text>
+<circle cx="655" cy="215" r="29" fill="#ef6565" stroke="#29465b" stroke-width="2"/>
+<text x="611" y="221" class="small" text-anchor="end">A</text><text x="699" y="221" class="small">K</text>
+<text x="745" y="202" class="label">Fase A • Merah</text>
+<circle cx="950" cy="215" r="4" fill="#243b53"/>
+<text x="261" y="284" class="pin" text-anchor="end">GPIO26</text>
+<circle cx="280" cy="277" r="4" fill="#243b53"/>
+<path class="wire" d="M280 277 H385 M485 277 H625 M685 277 H950"/>
+<rect x="385" y="266" width="100" height="22" fill="#fff" stroke="#243b53" stroke-width="2"/>
+<text x="435" y="258" class="small" text-anchor="middle">R2 • 330 Ω</text>
+<circle cx="655" cy="277" r="29" fill="#f2cd4b" stroke="#29465b" stroke-width="2"/>
+<text x="611" y="283" class="small" text-anchor="end">A</text><text x="699" y="283" class="small">K</text>
+<text x="745" y="264" class="label">Fase A • Kuning</text>
+<circle cx="950" cy="277" r="4" fill="#243b53"/>
+<text x="261" y="346" class="pin" text-anchor="end">GPIO27</text>
+<circle cx="280" cy="339" r="4" fill="#243b53"/>
+<path class="wire" d="M280 339 H385 M485 339 H625 M685 339 H950"/>
+<rect x="385" y="328" width="100" height="22" fill="#fff" stroke="#243b53" stroke-width="2"/>
+<text x="435" y="320" class="small" text-anchor="middle">R3 • 330 Ω</text>
+<circle cx="655" cy="339" r="29" fill="#5dbe8a" stroke="#29465b" stroke-width="2"/>
+<text x="611" y="345" class="small" text-anchor="end">A</text><text x="699" y="345" class="small">K</text>
+<text x="745" y="326" class="label">Fase A • Hijau</text>
+<circle cx="950" cy="339" r="4" fill="#243b53"/>
+<text x="261" y="408" class="pin" text-anchor="end">GPIO14</text>
+<circle cx="280" cy="401" r="4" fill="#243b53"/>
+<path class="wire" d="M280 401 H385 M485 401 H625 M685 401 H950"/>
+<rect x="385" y="390" width="100" height="22" fill="#fff" stroke="#243b53" stroke-width="2"/>
+<text x="435" y="382" class="small" text-anchor="middle">R4 • 330 Ω</text>
+<circle cx="655" cy="401" r="29" fill="#ef6565" stroke="#29465b" stroke-width="2"/>
+<text x="611" y="407" class="small" text-anchor="end">A</text><text x="699" y="407" class="small">K</text>
+<text x="745" y="388" class="label">Fase B • Merah</text>
+<circle cx="950" cy="401" r="4" fill="#243b53"/>
+<text x="261" y="470" class="pin" text-anchor="end">GPIO32</text>
+<circle cx="280" cy="463" r="4" fill="#243b53"/>
+<path class="wire" d="M280 463 H385 M485 463 H625 M685 463 H950"/>
+<rect x="385" y="452" width="100" height="22" fill="#fff" stroke="#243b53" stroke-width="2"/>
+<text x="435" y="444" class="small" text-anchor="middle">R5 • 330 Ω</text>
+<circle cx="655" cy="463" r="29" fill="#f2cd4b" stroke="#29465b" stroke-width="2"/>
+<text x="611" y="469" class="small" text-anchor="end">A</text><text x="699" y="469" class="small">K</text>
+<text x="745" y="450" class="label">Fase B • Kuning</text>
+<circle cx="950" cy="463" r="4" fill="#243b53"/>
+<text x="261" y="532" class="pin" text-anchor="end">GPIO33</text>
+<circle cx="280" cy="525" r="4" fill="#243b53"/>
+<path class="wire" d="M280 525 H385 M485 525 H625 M685 525 H950"/>
+<rect x="385" y="514" width="100" height="22" fill="#fff" stroke="#243b53" stroke-width="2"/>
+<text x="435" y="506" class="small" text-anchor="middle">R6 • 330 Ω</text>
+<circle cx="655" cy="525" r="29" fill="#5dbe8a" stroke="#29465b" stroke-width="2"/>
+<text x="611" y="531" class="small" text-anchor="end">A</text><text x="699" y="531" class="small">K</text>
+<text x="745" y="512" class="label">Fase B • Hijau</text>
+<circle cx="950" cy="525" r="4" fill="#243b53"/>
+<text x="261" y="594" class="pin" text-anchor="end">GPIO16</text>
+<circle cx="280" cy="587" r="4" fill="#243b53"/>
+<path class="wire" d="M280 587 H385 M485 587 H625 M685 587 H950"/>
+<rect x="385" y="576" width="100" height="22" fill="#fff" stroke="#243b53" stroke-width="2"/>
+<text x="435" y="568" class="small" text-anchor="middle">R7 • 330 Ω</text>
+<circle cx="655" cy="587" r="29" fill="#ef6565" stroke="#29465b" stroke-width="2"/>
+<text x="611" y="593" class="small" text-anchor="end">A</text><text x="699" y="593" class="small">K</text>
+<text x="745" y="574" class="label">Fase C • Merah</text>
+<circle cx="950" cy="587" r="4" fill="#243b53"/>
+<text x="261" y="656" class="pin" text-anchor="end">GPIO17</text>
+<circle cx="280" cy="649" r="4" fill="#243b53"/>
+<path class="wire" d="M280 649 H385 M485 649 H625 M685 649 H950"/>
+<rect x="385" y="638" width="100" height="22" fill="#fff" stroke="#243b53" stroke-width="2"/>
+<text x="435" y="630" class="small" text-anchor="middle">R8 • 330 Ω</text>
+<circle cx="655" cy="649" r="29" fill="#f2cd4b" stroke="#29465b" stroke-width="2"/>
+<text x="611" y="655" class="small" text-anchor="end">A</text><text x="699" y="655" class="small">K</text>
+<text x="745" y="636" class="label">Fase C • Kuning</text>
+<circle cx="950" cy="649" r="4" fill="#243b53"/>
+<text x="261" y="718" class="pin" text-anchor="end">GPIO18</text>
+<circle cx="280" cy="711" r="4" fill="#243b53"/>
+<path class="wire" d="M280 711 H385 M485 711 H625 M685 711 H950"/>
+<rect x="385" y="700" width="100" height="22" fill="#fff" stroke="#243b53" stroke-width="2"/>
+<text x="435" y="692" class="small" text-anchor="middle">R9 • 330 Ω</text>
+<circle cx="655" cy="711" r="29" fill="#5dbe8a" stroke="#29465b" stroke-width="2"/>
+<text x="611" y="717" class="small" text-anchor="end">A</text><text x="699" y="717" class="small">K</text>
+<text x="745" y="698" class="label">Fase C • Hijau</text>
+<circle cx="950" cy="711" r="4" fill="#243b53"/>
+<rect x="485" y="790" width="300" height="178" rx="8" fill="#f2f7f5" stroke="#5d8c7a" stroke-width="2"/>
+<text x="565" y="814" class="label" font-weight="bold">OLED SSD1306</text>
+<text x="565" y="839" class="small">128 × 64 • I²C 3,3 V</text>
+<text x="565" y="864" class="small">Periksa alamat dan</text>
+<text x="565" y="884" class="small">label modul aktual</text>
+<text x="261" y="825" class="pin" text-anchor="end">GPIO21</text>
+<text x="261" y="860" class="pin" text-anchor="end">GPIO22</text>
+<text x="261" y="895" class="pin" text-anchor="end">3V3</text>
+<text x="261" y="931" class="pin" text-anchor="end">GND</text>
+<path d="M280 819 H485 M280 854 H485" fill="none" stroke="#377fa5" stroke-width="3"/>
+<path d="M280 889 H485" fill="none" stroke="#c35353" stroke-width="3"/>
+<text x="496" y="825" class="small">SDA</text>
+<text x="496" y="860" class="small">SCL</text>
+<text x="496" y="895" class="small">VCC</text>
+<text x="770" y="930" class="small" text-anchor="end">GND</text>
+<path class="wire" d="M785 924 H950"/>
+<circle cx="950" cy="924" r="4" fill="#243b53"/>
+<text x="50" y="1081" class="label">Setiap LED memakai resistor 330 Ω ¼ W sendiri. A = anoda, K = katoda. Aktif HIGH.</text>
+<text x="50" y="1107" class="small">Rancangan sebelum perakitan. Periksa papan/pin/polaritas dan suplai aktual pada minggu 4–5.</text>
+</svg>

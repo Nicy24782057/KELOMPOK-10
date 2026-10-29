@@ -1,0 +1,67 @@
+HASIL PEMERIKSAAN FORMAT DAN KELENGKAPAN PAKET S01 MINGGU 3
+Waktu pemeriksaan: 2026-10-29T16:43:26+07:00
+Jenis pemeriksaan: parsing/relasi fixture, aritmetika contoh, CSV, isi/path dan cakupan paket.
+Nama PIC adalah penanggung jawab bidang; pemeriksaan paket dibantu asisten.
+
+[OK] Enam JSON dapat diparse, tanpa key duplikat atau nilai nonfinite.
+[OK] Konfigurasi adalah demonstrasi nonoperasional; tidak mengklaim kalibrasi.
+[OK] Urutan dan tiga fase A/B/C tersedia.
+[OK] Setiap fase memiliki kamera berbeda.
+[OK] Timing sesuai kebutuhan: pemicu 1 s, respons 3 s, kuning 3 s, merah bersama 1 s, lock sebelum merah bersama.
+[OK] Toleransi yang belum diukur ditandai belum tersedia.
+[OK] Ambang dan satuan fixture fase A sah.
+[OK] Struktur dasar/tambahan/durasi/batas/statis fixture fase A konsisten dan belum diverifikasi.
+[OK] Ambang dan satuan fixture fase B sah.
+[OK] Struktur dasar/tambahan/durasi/batas/statis fixture fase B konsisten dan belum diverifikasi.
+[OK] Ambang dan satuan fixture fase C sah.
+[OK] Struktur dasar/tambahan/durasi/batas/statis fixture fase C konsisten dan belum diverifikasi.
+[OK] Konfigurasi mensyaratkan autentikasi dan verifikasi TLS/hostname.
+[OK] Kelima jenis pesan memakai QoS 1/retain false; kebutuhan plan/ACK terpenuhi pada rancangan.
+[OK] Lima event_id contoh berbeda.
+[OK] Envelope trigger lengkap dan eksplisit demonstrasi.
+[OK] Envelope measurement lengkap dan eksplisit demonstrasi.
+[OK] Envelope plan lengkap dan eksplisit demonstrasi.
+[OK] Envelope ack lengkap dan eksplisit demonstrasi.
+[OK] Envelope status lengkap dan eksplisit demonstrasi.
+[OK] Controller, sesi, giliran 42 dan versi control konsisten pada rantai contoh.
+[OK] Trigger aktif 41/A menuju sasaran 42/B; status aktif contoh sudah 42/B.
+[OK] Kamera dan versi pengamatan/parameter cocok pemetaan fase B.
+[OK] Jumlah empat kelas contoh sama dengan N=6 dan validitas/alasan konsisten.
+[OK] Aritmetika fixture k=1000*6/(100*2)=30 dan nilai antar-pesan cocok.
+[OK] Kategori/usulan/clamp fixture menghasilkan sedang dan 20 detik.
+[OK] Rujukan measurement_id dan plan_id menghubungkan pengukuran, rencana, ACK dan pelaksanaan.
+[OK] Timestamp fixture ber-offset dan berurutan.
+[OK] Response fixture dihitung pada jam ESP dan memenuhi 1800 ms sebagai contoh.
+[OK] Status green_started fixture konsisten dengan nominal +5 detik dan rencana 20 detik.
+[OK] Umur buffer fixture 120 ms dibedakan dari umur sumber yang tidak diketahui.
+[OK] CSV kalibrasi berisi 64 header unik dan 0 baris pengamatan.
+[OK] CSV pengujian berisi 64 header unik dan 0 baris pengamatan.
+[OK] Header kalibrasi dan pengujian identik.
+[OK] Semua 64 kolom memiliki penjelasan dalam kamus data.
+[OK] Template membedakan count frame, kelompok awal, waktu/layanan, ketidakpastian dan versi.
+[OK] UJI-01–UJI-34 tersedia berurutan tanpa kasus hilang/duplikat.
+[OK] Seluruh 34 UJI memuat prasyarat, langkah, hasil harapan/kriteria dan bukti.
+[OK] Skema memuat 9 GPIO LED unik dan I2C21/22.
+[OK] Skema memuat sembilan resistor seri 330 ohm.
+[OK] Seluruh keluaran inti W03-T01–W03-T07 tersedia pada path lengkap yang ditentukan.
+[OK] README_minggu_3.md hanya memuat bagian Minggu 3.
+[OK] README_minggu_3.md melaporkan tujuh tugas seluruh PIC.
+[OK] log-aktivitas_minggu_3.md hanya memuat bagian Minggu 3.
+[OK] log-aktivitas_minggu_3.md melaporkan tujuh tugas seluruh PIC.
+[OK] Pelaporan meliputi seluruh lima anggota.
+[OK] README/log penuh tidak disertakan; penambahan khusus Minggu 3 mencegah penimpaan bagian sebelumnya.
+[OK] Fence Markdown berpasangan: PETUNJUK_MINGGU_3.md.
+[OK] Fence Markdown berpasangan: TAMBAHAN_MINGGU_3/README_minggu_3.md.
+[OK] Fence Markdown berpasangan: TAMBAHAN_MINGGU_3/log-aktivitas_minggu_3.md.
+[OK] Fence Markdown berpasangan: KELOMPOK-10/data/templates/README.md.
+[OK] Fence Markdown berpasangan: KELOMPOK-10/docs/pengujian/rencana-uji.md.
+[OK] Fence Markdown berpasangan: KELOMPOK-10/docs/perangkat/perakitan.md.
+[OK] Fence Markdown berpasangan: KELOMPOK-10/docs/operasional/konfigurasi-backend-dan-mqtt.md.
+[OK] Fence Markdown berpasangan: KELOMPOK-10/docs/perencanaan/prosedur-ai-dan-pengamatan.md.
+[OK] Fence Markdown berpasangan: KELOMPOK-10/docs/perencanaan/indeks-perencanaan.md.
+[OK] Berkas sumber minggu 1/2 tidak berubah selama pemeriksaan/pengemasan.
+
+Pemeriksaan visual: skema SVG dirender dan ditinjau; preview header CSV ditinjau.
+Batas bukti: tidak menjalankan YOLO, backend, MQTT, ESP32, server GPU, atau UJI-01–UJI-34.
+Tidak ada klaim data pengamatan, kalibrasi, persetujuan PM, commit/push atau URL aktual.
+Status: berkas/rancangan tersedia untuk review; parameter/alat/data aktual mengikuti tahap berikutnya.

@@ -1,0 +1,238 @@
+{
+  "schema_version": "1.0",
+  "example_only": true,
+  "runtime_enabled": false,
+  "config_status": "example_unverified",
+  "control_config_version": "control-demo-w03-v1",
+  "controller_id": "esp32-01",
+  "phase_order": [
+    "A",
+    "B",
+    "C"
+  ],
+  "timing": {
+    "trigger_remaining_s": 1,
+    "response_target_ms": 3000,
+    "yellow_s": 3,
+    "all_red_s": 1,
+    "startup_all_red_s": 1,
+    "lock_boundary": "before_all_red",
+    "clock": "esp32_monotonic",
+    "timing_tolerance_ms": null
+  },
+  "mqtt": {
+    "protocol": "3.1.1",
+    "host": "mqtt.example.invalid",
+    "port": 8883,
+    "tls_required": true,
+    "verify_server_certificate": true,
+    "verify_server_hostname": true,
+    "allow_anonymous": false,
+    "username_env": "MQTT_USERNAME",
+    "password_env": "MQTT_PASSWORD",
+    "ca_file_env": "MQTT_CA_FILE",
+    "topic_prefix": "traffic/esp32-01",
+    "delivery": {
+      "trigger": {
+        "qos": 1,
+        "retain": false
+      },
+      "measurement": {
+        "qos": 1,
+        "retain": false
+      },
+      "plan": {
+        "qos": 1,
+        "retain": false
+      },
+      "ack": {
+        "qos": 1,
+        "retain": false
+      },
+      "status": {
+        "qos": 1,
+        "retain": false
+      }
+    }
+  },
+  "data": {
+    "density_unit": "kendaraan/km/lajur",
+    "count_unit": "kendaraan",
+    "snapshot_policy": "one_full_frame_per_unique_trigger",
+    "measurement_path": "internal_ai_to_backend",
+    "measurement_mqtt_purpose": "logging_copy"
+  },
+  "phases": {
+    "A": {
+      "camera_id": "cctv-A",
+      "config_version": "cam-demo-A-v1",
+      "parameter_version": "param-demo-A-v1",
+      "parameter_status": "example_unverified",
+      "observation_example": {
+        "length_m": 100,
+        "lanes": 2,
+        "frame_age_basis": "server_buffer_residence",
+        "max_buffer_residence_ms": 1000,
+        "max_source_age_ms": null,
+        "source_age_known": false
+      },
+      "thresholds": {
+        "k1": 20,
+        "k2": 40,
+        "unit": "kendaraan/km/lajur"
+      },
+      "green": {
+        "base_s": 10,
+        "add_s": {
+          "rendah": 0,
+          "sedang": 10,
+          "tinggi": 20
+        },
+        "category_s": {
+          "rendah": 10,
+          "sedang": 20,
+          "tinggi": 30
+        },
+        "min_s": 5,
+        "max_s": 40,
+        "static_s": 15,
+        "static_verified": false
+      },
+      "calibration": {
+        "dataset_version": null,
+        "report_path": null,
+        "cluster_centers": null,
+        "cluster_sizes": null,
+        "kmeans_settings": {
+          "random_state": null,
+          "n_init": null,
+          "max_iter": null,
+          "tol": null
+        },
+        "coverage_final_by_category": {
+          "rendah": null,
+          "sedang": null,
+          "tinggi": null
+        }
+      }
+    },
+    "B": {
+      "camera_id": "cctv-B",
+      "config_version": "cam-demo-B-v1",
+      "parameter_version": "param-demo-B-v1",
+      "parameter_status": "example_unverified",
+      "observation_example": {
+        "length_m": 100,
+        "lanes": 2,
+        "frame_age_basis": "server_buffer_residence",
+        "max_buffer_residence_ms": 1000,
+        "max_source_age_ms": null,
+        "source_age_known": false
+      },
+      "thresholds": {
+        "k1": 20,
+        "k2": 40,
+        "unit": "kendaraan/km/lajur"
+      },
+      "green": {
+        "base_s": 10,
+        "add_s": {
+          "rendah": 0,
+          "sedang": 10,
+          "tinggi": 20
+        },
+        "category_s": {
+          "rendah": 10,
+          "sedang": 20,
+          "tinggi": 30
+        },
+        "min_s": 5,
+        "max_s": 40,
+        "static_s": 15,
+        "static_verified": false
+      },
+      "calibration": {
+        "dataset_version": null,
+        "report_path": null,
+        "cluster_centers": null,
+        "cluster_sizes": null,
+        "kmeans_settings": {
+          "random_state": null,
+          "n_init": null,
+          "max_iter": null,
+          "tol": null
+        },
+        "coverage_final_by_category": {
+          "rendah": null,
+          "sedang": null,
+          "tinggi": null
+        }
+      }
+    },
+    "C": {
+      "camera_id": "cctv-C",
+      "config_version": "cam-demo-C-v1",
+      "parameter_version": "param-demo-C-v1",
+      "parameter_status": "example_unverified",
+      "observation_example": {
+        "length_m": 100,
+        "lanes": 2,
+        "frame_age_basis": "server_buffer_residence",
+        "max_buffer_residence_ms": 1000,
+        "max_source_age_ms": null,
+        "source_age_known": false
+      },
+      "thresholds": {
+        "k1": 20,
+        "k2": 40,
+        "unit": "kendaraan/km/lajur"
+      },
+      "green": {
+        "base_s": 10,
+        "add_s": {
+          "rendah": 0,
+          "sedang": 10,
+          "tinggi": 20
+        },
+        "category_s": {
+          "rendah": 10,
+          "sedang": 20,
+          "tinggi": 30
+        },
+        "min_s": 5,
+        "max_s": 40,
+        "static_s": 15,
+        "static_verified": false
+      },
+      "calibration": {
+        "dataset_version": null,
+        "report_path": null,
+        "cluster_centers": null,
+        "cluster_sizes": null,
+        "kmeans_settings": {
+          "random_state": null,
+          "n_init": null,
+          "max_iter": null,
+          "tol": null
+        },
+        "coverage_final_by_category": {
+          "rendah": null,
+          "sedang": null,
+          "tinggi": null
+        }
+      }
+    }
+  },
+  "deployment_gates": [
+    "disable_example_mode_only_after_review",
+    "validate_camera_config_and_frame_freshness",
+    "freeze_model_and_calibrated_parameters",
+    "verify_local_static_durations",
+    "complete_mqtt_tls_and_gpio_checks"
+  ],
+  "notes": [
+    "Semua nilai panjang/lajur, ambang, durasi hijau dan umur buffer adalah data demonstrasi.",
+    "Kuning 3 detik, merah bersama 1 detik, pemicu sisa 1 detik dan target respons 3 detik mengikuti kebutuhan.",
+    "Berkas ini tidak boleh diaktifkan sebagai konfigurasi operasi tanpa parameter aktual dan pemeriksaan."
+  ]
+}

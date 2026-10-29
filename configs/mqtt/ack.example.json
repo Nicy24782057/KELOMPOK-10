@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "message_type": "ack",
+  "example_only": true,
+  "event_id": "evt-demo-ack-42",
+  "event_ts": "2026-10-29T15:00:01.800+07:00",
+  "controller_id": "esp32-01",
+  "session_id": "demo-boot-001",
+  "turn_id": 42,
+  "control_config_version": "control-demo-w03-v1",
+  "plan_id": "plan-demo-42",
+  "phase": "B",
+  "accepted": true,
+  "reason": "accepted_candidate",
+  "response_ms": 1800,
+  "response_target_met": true,
+  "esp_received_monotonic_ms": 101800
+}

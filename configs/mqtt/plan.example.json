@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "message_type": "plan",
+  "example_only": true,
+  "event_id": "evt-demo-plan-42",
+  "event_ts": "2026-10-29T15:00:01.400+07:00",
+  "controller_id": "esp32-01",
+  "session_id": "demo-boot-001",
+  "turn_id": 42,
+  "control_config_version": "control-demo-w03-v1",
+  "plan_id": "plan-demo-42",
+  "measurement_id": "meas-demo-42",
+  "phase": "B",
+  "camera_id": "cctv-B",
+  "vehicle_count": 6,
+  "density_k": 30,
+  "density_unit": "kendaraan/km/lajur",
+  "category": "sedang",
+  "green_proposed_s": 20,
+  "green_s": 20,
+  "config_version": "cam-demo-B-v1",
+  "parameter_version": "param-demo-B-v1"
+}
