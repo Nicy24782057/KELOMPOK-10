@@ -1,0 +1,128 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import sys, platform; from datetime import datetime; print('\n=== PEMERIKSAAN LINGKUNGAN AI ==='); print('Waktu:', datetime.now().astimezone().isoformat()); print('OS:', platform.platform()); print('Python:', sys.version); print('Lokasi Python:', sys.executable); print('Virtualenv aktif:', sys.prefix != sys.base_prefix); import torch, torchvision, cv2, ultralytics; print('Torch:', torch.__version__); print('Torchvision:', torchvision.__version__); print('OpenCV:', cv2.__version__); print('Ultralytics:', ultralytics.__version__); print('CUDA tersedia pada PyTorch:', torch.cuda.is_available())
+                                                                                                                                                                                                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'torchvision'
+
+=== PEMERIKSAAN LINGKUNGAN AI ===
+Waktu: 2026-11-02T11:25:15.225239+07:00
+OS: Windows-11-10.0.26200-SP0
+Python: 3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]
+Lokasi Python: C:\Program Files\Python314\python.exe
+Virtualenv aktif: False
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from pathlib import Path; import hashlib; from ultralytics import YOLO; print('\n=== PEMERIKSAAN MODEL KANDIDAT ==='); p=Path('models/yolo11n.pt').resolve(strict=True); print('Lokasi bobot:', p); print('SHA256:', hashlib.sha256(p.read_bytes()).hexdigest()); model=YOLO(str(p)); model.to('cpu'); print('Tugas model:', model.task); print('Perangkat model:', model.device); print('Kelas kendaraan:', {k:v for k,v in model.names.items() if v in ('car','motorcycle','bus','truck')}); print('Status pemilihan: kandidat awal'); print('PEMUATAN MODEL BERHASIL')
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'ultralytics'
+No broken requirements found.
+asgiref==3.11.1
+attrs==26.1.0
+coverage==7.14.3
+Django==6.0.3
+django-cors-headers==4.9.0
+django-filter==25.2
+django-scalar==0.2.0
+djangorestframework==3.17.1
+djangorestframework_simplejwt==5.5.1
+drf-spectacular==0.29.0
+Faker==40.15.0
+filelock==3.32.3
+fsspec==2026.7.0
+gunicorn==26.0.0
+inflection==0.5.1
+Jinja2==3.1.6
+jsonschema==4.26.0
+jsonschema-specifications==2025.9.1
+MarkupSafe==3.0.3
+mpmath==1.3.0
+networkx==3.6.1
+numpy==2.5.2
+packaging==26.2
+pillow==12.3.0
+psycopg2-binary==2.9.11
+PyJWT==2.12.1
+PyYAML==6.0.3
+referencing==0.37.0
+rpds-py==2026.5.1
+setuptools==78.1.0
+sqlparse==0.5.5
+sympy==1.14.0
+torch==2.14.1+cpu
+typing_extensions==4.16.0
+tzdata==2025.3
+uritemplate==4.2.0
+
+=== PEMERIKSAAN MODEL DARI VENV ===
+Waktu: 2026-11-02T12:33:51.354229+07:00
+Lokasi Python: C:\Users\ACER\Downloads\Github\KELOMPOK-10\.venv\Scripts\python.exe
+Virtualenv aktif: True
+[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt to 'models\yolo11n.pt': 5% ╸─────────── 320.0KB/5.4MB 3.1MB/s 0.1s<1.6s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt to 'models\yolo11n.pt': 44% ━━━━━─────── 2.4/5.4MB 19.2MB/s 0.2s<0.2s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt to 'models\yolo11n.pt': 77% ━━━━━━━━━─── 4.1/5.4MB 17.1MB/s 0.3s<0.1s[KDownloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt to 'models\yolo11n.pt': 100% ━━━━━━━━━━━━ 5.4MB 14.1MB/s 0.4s
+Lokasi bobot: C:\Users\ACER\Downloads\Github\KELOMPOK-10\models\yolo11n.pt
+SHA256: 0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1
+Tugas model: detect
+Perangkat model: cpu
+Kelas kendaraan: {2: 'car', 3: 'motorcycle', 5: 'bus', 7: 'truck'}
+Status pemilihan: kandidat awal
+PEMUATAN MODEL BERHASIL
+anyio==4.16.0
+certifi==2026.10.23
+charset-normalizer==3.5.2
+contourpy==1.4.0
+cycler==0.12.1
+filelock==4.2.4
+fonttools==4.68.0
+fsspec==2026.9.0
+h11==0.16.0
+httpcore==1.0.9
+httpx==0.28.1
+idna==3.20
+Jinja2==3.1.6
+kiwisolver==1.5.1
+MarkupSafe==3.0.3
+matplotlib==3.11.2
+mpmath==1.3.0
+networkx==3.7
+numpy==2.5.4
+nvidia-ml-py==13.615.71
+opencv-python==5.0.0.93
+packaging==26.3
+pillow==13.0.0
+polars==2.1.0
+polars-runtime-32==2.1.0
+psutil==7.2.2
+pyparsing==3.3.3
+python-dateutil==4.0.0
+PyYAML==6.0.3
+requests==2.34.2
+setuptools==78.1.0
+sympy==1.14.0
+torch==2.14.1+cpu
+torchvision==0.29.1+cpu
+typing_extensions==4.16.0
+tzdata==2026.6
+ultralytics==8.4.189
+ultralytics-platform==0.1.102
+ultralytics-thop==2.2.4
+urllib3==2.8.0
+
+============================================================
+S02 / W04-T02 - Pemeriksaan kandidat YOLO11s
+Mulai: 2026-11-05T13:13:03.085780+07:00
+Python: 3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]
+Interpreter: C:\Users\ACER\Downloads\Github\KELOMPOK-10\.venv\Scripts\python.exe
+Virtualenv: True
+Torch: 2.14.1+cpu
+Torchvision: 0.29.1+cpu
+OpenCV: 5.0.0
+Ultralytics: 8.4.189
+CUDA tersedia: False
+Bobot: C:\Users\ACER\Downloads\Github\KELOMPOK-10\models\yolo11s.pt
+Tugas model: detect
+Perangkat model: cpu
+Kelas kendaraan: {2: 'car', 3: 'motorcycle', 5: 'bus', 7: 'truck'}
+SHA256: 85a76fe86dd8afe384648546b56a7a78580c7cb7b404fc595f97969322d502d5
+Status pemilihan: kandidat_awal
+STATUS: PEMUATAN YOLO11s BERHASIL
+Selesai: 2026-11-05T13:16:18.861038+07:00
+Lokasi log: C:\Users\ACER\Downloads\Github\KELOMPOK-10\evidence\S02\lingkungan-ai.txt
