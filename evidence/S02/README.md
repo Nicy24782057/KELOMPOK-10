@@ -56,5 +56,5 @@ Mosquitto telah dikonfigurasi menggunakan autentikasi username dan password sert
 **PIC:** Putu
 
 URL commit GitHub:
-[1f517607ff3d1be5fb97c880d6c20976bc82f3f5]
+1f517607ff3d1be5fb97c880d6c20976bc82f3f5
 
