@@ -10,3 +10,42 @@ Bagian ini mencatat kontribusi Rizky Bintang Fadillah pada Minggu 4, W04-T02. Ji
 | 2 November 2026 | S02 / Minggu 4 | Pelaporan W04-T02 | Rizky Bintang Fadillah; penyusunan dengan pendampingan asisten | Menyusun snapshot dependensi, manifest kandidat, dokumentasi lingkungan, dan catatan kontribusi berdasarkan output aktual yang diberikan. | Berkas kontribusi tersedia untuk diterapkan ke repositori dan ditelaah Rizky; siap review Nicy setelah penggabungan. | `ai/requirements.txt`; `models/manifest.csv`; `infra/lingkungan-ai.md`; `evidence/S02/log-aktivitas.md` | Ikrom merekap kesiapan; Nicy menyelaraskan penyebutan model pada Kanban dan mencatat hasil review. Commit/push serta persetujuan belum dicatat selesai. |
 | 5 November 2026 | S02 / Minggu 4 | W04-T02 | Rizky Bintang Fadillah | Menjalankan `ai/periksa_kandidat.py` melalui Python `.venv`, mengunduh dan memuat kandidat YOLO11s pada CPU. | Berhasil; detect; cpu; empat kelas kendaraan sesuai. Mulai 13:13:03.085780+07:00, selesai 13:16:18.861038+07:00. SHA256 `85a76fe86dd8afe384648546b56a7a78580c7cb7b404fc595f97969322d502d5`. | Log asli `evidence/S02/lingkungan-ai.txt`; `ai/periksa_kandidat.py`; `models/manifest.csv` | Dua kandidat, YOLO11n dan YOLO11s, tersedia untuk evaluasi implementasi. Review Nicy menunggu penggabungan bukti. |
 | 5 November 2026 | S02 / Minggu 4 | Pelaporan W04-T02 | Rizky Bintang Fadillah; penyusunan dengan pendampingan asisten | Melengkapi manifest dua kandidat dan memperbarui dokumentasi dari keluaran aktual. Memeriksa kecocokan SHA256 dengan metadata rilis resmi. | Kedua hash cocok dengan digest metadata v8.4.0. Issue S02 sudah memakai beberapa kandidat; tindak lanjut perubahan penyebutan model pada catatan 2 November telah terpenuhi untuk kartu S02. | `models/manifest.csv`; `infra/lingkungan-ai.md`; `PETUNJUK_S02_RIZKY.md` | Ikrom menggabungkan rekap kesiapan. Nicy mencatat hasil review dan URL commit pelaporan setelah penerimaan aktual. |
+
+
+## Aktivitas Putu — Minggu 4 (S02-W04)
+
+**PIC:** Putu  
+**Tanggung Jawab:** Server dan Backend
+
+### Pekerjaan yang Dilaksanakan
+
+1. Menyiapkan lingkungan backend menggunakan Windows 11, Ubuntu WSL2, dan Docker Desktop.
+2. Menyiapkan konfigurasi Docker Compose untuk Mosquitto, Node-RED, dan InfluxDB.
+3. Membuat konfigurasi variabel lingkungan melalui `.env.example` dan `.env`.
+4. Mengonfigurasi Mosquitto dengan autentikasi username/password.
+5. Membuat sertifikat CA dan sertifikat server untuk komunikasi MQTT TLS.
+6. Menjalankan ketiga layanan backend menggunakan Docker Compose.
+7. Menguji komunikasi MQTT standar pada port 1883.
+8. Menguji komunikasi MQTT TLS pada port 8883.
+9. Memeriksa akses Node-RED dan InfluxDB.
+10. Mendokumentasikan hasil pemeriksaan layanan pada `evidence/S02/status-layanan.txt`.
+
+### Hasil Pekerjaan
+
+- Konfigurasi Docker Compose tersedia.
+- Mosquitto berhasil menjalankan komunikasi MQTT standar dan TLS.
+- Node-RED berhasil dijalankan dan diakses.
+- InfluxDB berhasil dijalankan dan diakses.
+- Autentikasi MQTT dan verifikasi sertifikat TLS berhasil diuji.
+- Bukti pemeriksaan layanan telah disiapkan.
+
+### Kendala dan Perbaikan
+
+- Tag image Node-RED awal tidak tersedia, diperbaiki menggunakan `nodered/node-red:4.1-debian`.
+- Konfigurasi Mosquitto belum tersedia, kemudian dibuat.
+- Docker Compose memerlukan lokasi `.env` secara eksplisit, diperbaiki menggunakan parameter `--env-file`.
+
+### Status
+
+W04-T01: Selesai.  
+W04-T04: Pengujian layanan berhasil.

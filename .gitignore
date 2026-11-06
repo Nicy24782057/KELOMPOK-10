@@ -79,3 +79,5 @@ reports/generated/
 *.onnx
 *.h5
 *.safetensors
+infra/mosquitto/config/passwordfile
+infra/mosquitto/certs/*.key

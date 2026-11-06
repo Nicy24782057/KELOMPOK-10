@@ -1,0 +1,54 @@
+
+LAPORAN PEMERIKSAAN LAYANAN SERVER
+Sprint: S02 - Minggu 4
+PIC: Putu
+
+1. LINGKUNGAN SERVER
+- Sistem operasi: Windows 11
+- Lingkungan Linux: Ubuntu WSL2
+- Container runtime: Docker Desktop
+- Container management: Docker Compose
+
+2. STATUS LAYANAN
+- Mosquitto MQTT Broker: Berhasil dijalankan
+- Node-RED: Berhasil dijalankan dan dapat diakses
+- InfluxDB: Berhasil dijalankan dan dapat diakses
+
+3. PENGUJIAN MQTT
+- Port: 1883
+- Autentikasi: Username dan password
+- Publisher: esp32_client
+- Subscriber: esp32_client
+- Hasil: Berhasil mengirim dan menerima pesan.
+
+4. PENGUJIAN MQTT TLS
+- Port: 8883
+- Sertifikat CA: ca.crt
+- Sertifikat server: server.crt
+- Verifikasi sertifikat: Berhasil
+- Autentikasi: Berhasil
+- Hasil: Komunikasi terenkripsi berhasil dilakukan.
+
+5. PENGUJIAN NODE-RED
+- Alamat: http://localhost:1880
+- Hasil: Dapat diakses.
+
+6. PENGUJIAN INFLUXDB
+- Alamat: http://localhost:8086
+- Hasil: Dapat diakses.
+
+7. KENDALA DAN PERBAIKAN
+- Node-RED menggunakan tag image yang tidak tersedia.
+- Perbaikan: Menggunakan image nodered/node-red:4.1-debian.
+- File mosquitto.conf belum tersedia pada pemeriksaan awal.
+- Perbaikan: Membuat konfigurasi Mosquitto.
+- Docker Compose tidak membaca .env secara otomatis dari lokasi repository.
+- Perbaikan: Menggunakan parameter --env-file.
+
+8. KESIMPULAN
+Layanan backend berhasil dijalankan menggunakan Docker Compose.
+Mosquitto berhasil melakukan komunikasi MQTT standar dan MQTT TLS
+dengan autentikasi. Node-RED dan InfluxDB berhasil diakses.
+
+Pemeriksaan akhir container dan kesehatan layanan dicatat
+berdasarkan keluaran aktual Docker Compose.

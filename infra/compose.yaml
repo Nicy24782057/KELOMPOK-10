@@ -24,7 +24,7 @@ services:
 
   # Node-RED
   nodered:
-    image: nodered/node-red:4
+    image: nodered/node-red:4.1-debian
     container_name: kelompok10-nodered
     restart: unless-stopped
 
