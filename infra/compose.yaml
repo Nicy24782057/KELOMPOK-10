@@ -1,0 +1,91 @@
+
+name: kelompok-10
+
+services:
+
+  # MQTT Broker
+  mosquitto:
+    image: eclipse-mosquitto:2
+    container_name: kelompok10-mosquitto
+    restart: unless-stopped
+
+    ports:
+      - "${MQTT_PORT:-1883}:1883"
+      - "${MQTT_TLS_PORT:-8883}:8883"
+
+    volumes:
+      - mosquitto_data:/mosquitto/data
+      - ./mosquitto/config:/mosquitto/config:ro
+      - ./mosquitto/certs:/mosquitto/certs:ro
+
+    networks:
+      - backend
+
+
+  # Node-RED
+  nodered:
+    image: nodered/node-red:4
+    container_name: kelompok10-nodered
+    restart: unless-stopped
+
+    depends_on:
+      - mosquitto
+
+    ports:
+      - "${NODE_RED_PORT:-1880}:1880"
+
+    environment:
+      TZ: ${TZ:-Asia/Jakarta}
+      NODE_RED_CREDENTIAL_SECRET: ${NODE_RED_CREDENTIAL_SECRET:?Set NODE_RED_CREDENTIAL_SECRET}
+
+    volumes:
+      - nodered_data:/data
+
+    networks:
+      - backend
+
+
+  # InfluxDB
+  influxdb:
+    image: influxdb:2.7
+    container_name: kelompok10-influxdb
+    restart: unless-stopped
+
+    ports:
+      - "${INFLUXDB_PORT:-8086}:8086"
+
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: ${INFLUXDB_ADMIN_USER:?Set INFLUXDB_ADMIN_USER}
+      DOCKER_INFLUXDB_INIT_PASSWORD: ${INFLUXDB_ADMIN_PASSWORD:?Set INFLUXDB_ADMIN_PASSWORD}
+      DOCKER_INFLUXDB_INIT_ORG: ${INFLUXDB_ORG:-kelompok-10}
+      DOCKER_INFLUXDB_INIT_BUCKET: ${INFLUXDB_BUCKET:-traffic}
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: ${INFLUXDB_ADMIN_TOKEN:?Set INFLUXDB_ADMIN_TOKEN}
+      TZ: ${TZ:-Asia/Jakarta}
+
+    volumes:
+      - influxdb_data:/var/lib/influxdb2
+      - influxdb_config:/etc/influxdb2
+
+    healthcheck:
+      test: ["CMD", "influx", "ping", "--host", "http://localhost:8086"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+    networks:
+      - backend
+
+
+# Jaringan komunikasi antar layanan
+networks:
+  backend:
+    driver: bridge
+
+
+# Penyimpanan data permanen
+volumes:
+  mosquitto_data:
+  nodered_data:
+  influxdb_data:
+  influxdb_config:
