@@ -1,6 +1,10 @@
-# Log aktivitas S02 — Kontribusi Rizky
+# Log aktivitas S02 — Minggu 4
 
-Bagian ini mencatat kontribusi Rizky Bintang Fadillah pada Minggu 4, W04-T02. Jika log bersama S02 sudah berisi aktivitas anggota lain, tambahkan baris-baris berikut pada log tersebut. Tanggal dan hasil mengacu pada keluaran konsol yang diberikan pengguna. Durasi kerja tidak diisi karena tidak ada catatan durasi aktual.
+Catatan kegiatan tiap pelaksana untuk [rekap kesiapan Sprint 2](README.md). Gunakan tanggal pelaksanaan yang tercatat pada bukti.
+
+## Aktivitas Rizky — W04-T02
+
+Tanggal dan hasil pada bagian ini mengikuti keluaran konsol pemeriksaan lingkungan AI.
 
 | Tanggal | Sprint / minggu | ID tugas | Pelaksana / PIC | Aktivitas aktual | Hasil / progres | Lokasi bukti | Kendala / tindak lanjut |
 |---|---|---|---|---|---|---|---|
@@ -49,3 +53,13 @@ Bagian ini mencatat kontribusi Rizky Bintang Fadillah pada Minggu 4, W04-T02. Ji
 
 W04-T01: Selesai.  
 W04-T04: Pengujian layanan berhasil.
+
+## Progres Ramdhani, Ikrom, dan Nicy
+
+Bagian ini mencatat progres dokumen per PIC. Tanggal mengikuti penyusunan atau telaah berkas.
+
+| Tanggal | Sprint / minggu | ID tugas | PIC | Aktivitas tercatat | Hasil / progres | Lokasi bukti | Kendala / tindak lanjut |
+|---|---|---|---|---|---|---|---|
+| 6 November 2026 | S02 / Minggu 4 | W04-T03 | Ramdhani | Penyusunan daftar kebutuhan komponen dari proposal dan SRS untuk pemeriksaan sebelum perakitan. | Draf inventaris sudah memuat jumlah dan spesifikasi acuan ESP32, LED, resistor, OLED, kabel, breadboard, dan catu daya. | `docs/perangkat/inventaris.md` | Ramdhani perlu mencatat jumlah yang tersedia, tipe, kondisi, dan kekurangan berdasarkan cek fisik sebelum S03. |
+| 9 November 2026 | S02 / Minggu 4 | W04-T05 | Ikrom | Penggabungan laporan layanan Putu, bukti pemeriksaan AI Rizky, dan draf inventaris ke rekap Minggu 4. | Rekap W04-T01 sampai W04-T06 mencatat bukti, status kesiapan, kendala, dan PIC tindak lanjut. | [Rekap Minggu 4](README.md#minggu-4) | Ikrom perlu mengonfirmasi rekap setelah menerima hasil cek fisik dan pembaruan dokumen server. |
+| 9 November 2026 | S02 / Minggu 4 | W04-T06 | Nicy Putra Pratama | Telaah bukti dokumen kesiapan S02 dan pencatatan temuan untuk Review PM. | Catatan review memuat hasil pengujian lokal, pemeriksaan AI di CPU, dan status sementara siap sebagian. | [Review PM](README.md#review-pm) | Nicy perlu mengonfirmasi keputusan akhir setelah hasil inventaris dan bukti tindak lanjut lengkap. |
