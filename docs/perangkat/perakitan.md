@@ -4,7 +4,7 @@
 |---|---|
 | Tim / sprint / minggu | KELOMPOK-10 / S01 / 3 |
 | Tugas / PIC | W03-T01 / Ramdhani |
-| Versi / tanggal | 0.1 / 29 Oktober 2026 |
+| Versi / tanggal | 0.2 / 25 November 2026 |
 | Status | Rancangan tersedia untuk review; belum merupakan bukti perakitan atau uji fisik |
 | Lokasi | `KELOMPOK-10/docs/perangkat/perakitan.md` |
 
@@ -12,7 +12,7 @@
 
 Rancangan melanjutkan SRS Bagian 5 dan HLD Bagian 4.3, dengan ESP32-DevKitC V4 berisi ESP32-WROOM-32D, 9 LED (3 merah, 3 kuning, 3 hijau), 9 resistor 330 Ω ¼ W, OLED SSD1306 I²C 128 × 64, breadboard, jumper, serta adaptor USB 5 V 2 A. Papan aktual diperiksa pada minggu 4 dan dirakit pada minggu 5.
 
-Penetapan GPIO berikut merupakan keputusan rancangan minggu 3. Nomor adalah **nomor GPIO**, bukan urutan lubang breadboard. Rujukan header dan pilihan satu sumber daya mengikuti [panduan resmi ESP32-DevKitC](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32/esp32-devkitc/user_guide.html), diakses 29 Oktober 2026. GPIO16/17 di sini mensyaratkan modul WROOM; papan WROVER memerlukan pemetaan ulang.
+Pemetaan GPIO revisi mengikuti Tabel 5.4 proposal FINAL INI A(2).docx. Nomor adalah **nomor GPIO**, bukan urutan lubang breadboard. Pemetaan yang sama tersedia pada [configs/pins.example.json](../../configs/pins.example.json) dan skema di bawah. Rujukan header dan satu sumber daya mengikuti [panduan ESP32-DevKitC](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32/esp32-devkitc/user_guide.html). Kecocokan label papan aktual diperiksa sebelum perakitan.
 
 ## 2. Skema dan tabel sambungan
 
@@ -26,11 +26,11 @@ Setiap cabang LED: GPIO → resistor masing-masing → anoda LED (A) → katoda 
 | A kuning | 26 / IO26 | R2 330 Ω | Anoda A-K; katoda ke GND |
 | A hijau | 27 / IO27 | R3 330 Ω | Anoda A-H; katoda ke GND |
 | B merah | 14 / IO14 | R4 330 Ω | Anoda B-M; katoda ke GND |
-| B kuning | 32 / IO32 | R5 330 Ω | Anoda B-K; katoda ke GND |
-| B hijau | 33 / IO33 | R6 330 Ω | Anoda B-H; katoda ke GND |
-| C merah | 16 / IO16 | R7 330 Ω | Anoda C-M; katoda ke GND |
-| C kuning | 17 / IO17 | R8 330 Ω | Anoda C-K; katoda ke GND |
-| C hijau | 18 / IO18 | R9 330 Ω | Anoda C-H; katoda ke GND |
+| B kuning | 18 / IO18 | R5 330 Ω | Anoda B-K; katoda ke GND |
+| B hijau | 19 / IO19 | R6 330 Ω | Anoda B-H; katoda ke GND |
+| C merah | 23 / IO23 | R7 330 Ω | Anoda C-M; katoda ke GND |
+| C kuning | 32 / IO32 | R8 330 Ω | Anoda C-K; katoda ke GND |
+| C hijau | 33 / IO33 | R9 330 Ω | Anoda C-H; katoda ke GND |
 | OLED SDA | 21 / IO21 | Pull-up modul diperiksa | SDA OLED |
 | OLED SCL | 22 / IO22 | Pull-up modul diperiksa | SCL OLED |
 | OLED VCC | 3V3 | — | VCC modul yang mendukung 3,3 V |
@@ -105,3 +105,7 @@ Lock memakai keadaan dan waktu lokal aktual, bukan penjumlahan timestamp server.
 | Pemicu, respons, lock, statis, pemulihan/duplikasi | Ramdhani + Putu + Ikrom / integrasi | UJI-04, UJI-13–UJI-19 |
 
 Perubahan pin/perangkat setelah review dicatat dengan alasan, versi pin map, firmware/config terdampak, dan uji ulang terkait. Status dokumen saat ini: rancangan lengkap, belum diuji pada perangkat.
+
+## Catatan revisi 25 November 2026
+
+Pin fase B/C pada rancangan lama berbeda dari Tabel 5.4 proposal revisi. Tabel sambungan, skema SVG, HLD, SRS, dan konfigurasi pin pada paket ini menggunakan A 25/26/27, B 14/18/19, dan C 23/32/33. Perubahan ini menyelaraskan rancangan; belum menjadi bukti perubahan rangkaian fisik atau pengujian firmware.

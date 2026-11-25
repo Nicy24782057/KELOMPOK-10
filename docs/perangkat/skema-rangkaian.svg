@@ -2,7 +2,7 @@
 <rect width="1180" height="1120" fill="#fff"/>
 <style>text{font-family:Arial,DejaVu Sans,sans-serif;fill:#13283f}.wire{fill:none;stroke:#243b53;stroke-width:3}.small{font-size:16px}.label{font-size:19px}.pin{font-size:20px;font-weight:bold}</style>
 <text x="50" y="43" font-size="28" font-weight="bold">S01 minggu 3 • Skema sambungan prototipe</text>
-<text x="50" y="72" class="small">W03-T01 • Ramdhani • ESP32-DevKitC V4 / WROOM-32D • Pin map 0.1</text>
+<text x="50" y="72" class="small">W03-T01 • Ramdhani • ESP32-DevKitC V4 / WROOM-32D • Pin map 0.2 • Revisi 25 November 2026</text>
 <rect x="50" y="94" width="280" height="44" rx="6" fill="#eff5fa" stroke="#a3b5c6"/>
 <text x="68" y="122" class="label">USB 5 V • satu sumber daya</text>
 <path class="wire" d="M190 138 V150"/>
@@ -51,7 +51,7 @@
 <text x="611" y="407" class="small" text-anchor="end">A</text><text x="699" y="407" class="small">K</text>
 <text x="745" y="388" class="label">Fase B • Merah</text>
 <circle cx="950" cy="401" r="4" fill="#243b53"/>
-<text x="261" y="470" class="pin" text-anchor="end">GPIO32</text>
+<text x="261" y="470" class="pin" text-anchor="end">GPIO18</text>
 <circle cx="280" cy="463" r="4" fill="#243b53"/>
 <path class="wire" d="M280 463 H385 M485 463 H625 M685 463 H950"/>
 <rect x="385" y="452" width="100" height="22" fill="#fff" stroke="#243b53" stroke-width="2"/>
@@ -60,7 +60,7 @@
 <text x="611" y="469" class="small" text-anchor="end">A</text><text x="699" y="469" class="small">K</text>
 <text x="745" y="450" class="label">Fase B • Kuning</text>
 <circle cx="950" cy="463" r="4" fill="#243b53"/>
-<text x="261" y="532" class="pin" text-anchor="end">GPIO33</text>
+<text x="261" y="532" class="pin" text-anchor="end">GPIO19</text>
 <circle cx="280" cy="525" r="4" fill="#243b53"/>
 <path class="wire" d="M280 525 H385 M485 525 H625 M685 525 H950"/>
 <rect x="385" y="514" width="100" height="22" fill="#fff" stroke="#243b53" stroke-width="2"/>
@@ -69,7 +69,7 @@
 <text x="611" y="531" class="small" text-anchor="end">A</text><text x="699" y="531" class="small">K</text>
 <text x="745" y="512" class="label">Fase B • Hijau</text>
 <circle cx="950" cy="525" r="4" fill="#243b53"/>
-<text x="261" y="594" class="pin" text-anchor="end">GPIO16</text>
+<text x="261" y="594" class="pin" text-anchor="end">GPIO23</text>
 <circle cx="280" cy="587" r="4" fill="#243b53"/>
 <path class="wire" d="M280 587 H385 M485 587 H625 M685 587 H950"/>
 <rect x="385" y="576" width="100" height="22" fill="#fff" stroke="#243b53" stroke-width="2"/>
@@ -78,7 +78,7 @@
 <text x="611" y="593" class="small" text-anchor="end">A</text><text x="699" y="593" class="small">K</text>
 <text x="745" y="574" class="label">Fase C • Merah</text>
 <circle cx="950" cy="587" r="4" fill="#243b53"/>
-<text x="261" y="656" class="pin" text-anchor="end">GPIO17</text>
+<text x="261" y="656" class="pin" text-anchor="end">GPIO32</text>
 <circle cx="280" cy="649" r="4" fill="#243b53"/>
 <path class="wire" d="M280 649 H385 M485 649 H625 M685 649 H950"/>
 <rect x="385" y="638" width="100" height="22" fill="#fff" stroke="#243b53" stroke-width="2"/>
@@ -87,7 +87,7 @@
 <text x="611" y="655" class="small" text-anchor="end">A</text><text x="699" y="655" class="small">K</text>
 <text x="745" y="636" class="label">Fase C • Kuning</text>
 <circle cx="950" cy="649" r="4" fill="#243b53"/>
-<text x="261" y="718" class="pin" text-anchor="end">GPIO18</text>
+<text x="261" y="718" class="pin" text-anchor="end">GPIO33</text>
 <circle cx="280" cy="711" r="4" fill="#243b53"/>
 <path class="wire" d="M280 711 H385 M485 711 H625 M685 711 H950"/>
 <rect x="385" y="700" width="100" height="22" fill="#fff" stroke="#243b53" stroke-width="2"/>

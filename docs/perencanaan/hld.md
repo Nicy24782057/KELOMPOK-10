@@ -9,7 +9,7 @@
 | Sprint / minggu | S01 / minggu 2 |
 | Kode pekerjaan | W02-T01–W02-T05 — HLD lengkap seluruh anggota |
 | Koordinator dokumen | Nicy Putra Pratama |
-| Versi / tanggal | 0.2 / 29 Oktober 2026 |
+| Versi / tanggal | 0.3 / 25 November 2026 |
 | Status | Isi HLD seluruh anggota lengkap dan tergabung; siap Review PM |
 | Lokasi | `KELOMPOK-10/docs/perencanaan/hld.md` |
 
@@ -19,7 +19,7 @@ HLD menjelaskan penempatan komponen, pembagian fungsi, hubungan data, dan pengen
 
 | Acuan | Bagian yang digunakan |
 |---|---|
-| Proposal sempro `FINAL INI A(1).docx` | Bab 4 untuk kebutuhan; Subbab 5.1.1–5.1.4 serta Tabel 5.1–5.3 untuk arsitektur, dekomposisi, data, dan integrasi; Bab 6 untuk sasaran verifikasi. |
+| Proposal sempro `FINAL INI A(2).docx` | Bab 4 untuk kebutuhan; Subbab 5.1.1–5.1.4 serta Tabel 5.1–5.3 untuk arsitektur, dekomposisi, data, dan integrasi; Bab 6 untuk sasaran verifikasi. |
 | `KELOMPOK-10/docs/perencanaan/srs.md` | Ruang lingkup, pembagian fungsi, KF/KNF, antarmuka, data, dan keputusan terbuka. |
 | `KELOMPOK-10/docs/perencanaan/pembagian-kerja.md` | Pembagian W02-T01–W02-T05 dan ketergantungan pekerjaan. |
 | `KELOMPOK-10/docs/perencanaan/matriks-kebutuhan.md` | Keterkaitan kebutuhan, verifikasi, serta parameter yang belum ditetapkan. |
@@ -247,7 +247,7 @@ Pembaca video berjalan untuk memperbarui buffer; inferensi dijalankan berdasarka
 
 #### 4.1.4 Metadata, waktu, dan mutu masukan
 
-Pengukuran memuat identitas kamera/frame, pengukuran, sesi/giliran/fase tujuan, waktu yang tersedia, versi konfigurasi, jumlah, kepadatan, serta validitas/alasan. Nama field dan format persisnya ditetapkan pada kontrak minggu 3.
+Pengukuran memuat identitas kamera/frame, pengukuran, sesi/giliran/fase tujuan, frame_received_ts, frame_selected_ts, frame_source_ts apabila tersedia, versi konfigurasi, jumlah, kepadatan, serta validitas/alasan. Nama field dan format persisnya mengikuti kontrak komunikasi.
 
 Waktu sumber dan waktu penerimaan server dibedakan bila timestamp sumber tersedia. Waktu penerimaan bukan otomatis umur gambar sejak direkam. Resolusi/FPS, format, keterlambatan, sumber, ROI/panjang/lajur, serta ambang umur frame dicatat per kamera.
 
@@ -367,7 +367,7 @@ flowchart TB
     I2C --> OLED["OLED SSD1306"]
 ```
 
-Perangkat mengacu pada ESP32-DevKitC V4 dengan ESP32-WROOM-32D, sembilan LED/resistor, OLED SSD1306 I²C, dan catu daya pada SRS. Setiap fase memiliki satu LED merah, kuning, dan hijau. Sambungan/pin/resistor/catu daya dirinci dan diperiksa pada LLD/perakitan; gunakan satu sumber catu daya pada satu waktu sesuai rancangan papan.
+Perangkat mengacu pada ESP32-DevKitC V4 dengan ESP32-WROOM-32D, sembilan LED/resistor, OLED SSD1306 I²C, dan catu daya pada SRS. GPIO merah/kuning/hijau mengikuti proposal revisi: A 25/26/27, B 14/18/19, C 23/32/33; OLED SDA21/SCL22. Acuan terstruktur tersedia pada configs/pins.example.json. Setiap fase memiliki satu LED merah, kuning, dan hijau. Sambungan/pin/resistor/catu daya dirinci dan diperiksa pada LLD/perakitan; gunakan satu sumber catu daya pada satu waktu sesuai rancangan papan.
 
 #### 4.3.2 Fungsi perangkat
 
@@ -465,7 +465,7 @@ Data manual/kalibrasi/uji disimpan pada berkas dataset, sedangkan InfluxDB menyi
 
 Rencana dataset adalah 15 siklus kalibrasi dan 15 siklus uji terpisah per CCTV, masing-masing lima pagi, lima siang, dan lima sore; hari uji berbeda dari kalibrasi. Tiga kamera menghasilkan rencana 45 kalibrasi dan 45 uji. Jumlah aktual, keterwakilan kategori, data gagal, serta versi yang dievaluasi harus tercatat.
 
-Jumlah pada frame kepadatan dibedakan dari kelompok yang sudah mengantre ketika hijau aktual dimulai. Rekaman lanjutan untuk kelompok yang sama mengikuti pembagian dataset asal; waktu layanan hanya menjumlahkan hijau, dan penyelesaian belum pasti tetap diberi status yang sesuai.
+Kelompok awal ditetapkan dari anotasi manual pada frame kepadatan sekitar lima detik sebelum hijau aktual. Pada frame valid dengan anotasi manual yang sah, initial_queue_count sama dengan manual_total. Keanggotaan dipertahankan; kendaraan yang datang setelah waktu frame tidak ditambahkan. Saat hijau aktual dimulai, pengukuran waktu layanan dimulai untuk kelompok yang sama. Rekaman lanjutan mengikuti pembagian dataset asal; hanya waktu hijau dijumlahkan dan penyelesaian belum pasti tetap dicatat.
 
 Rancangan terkait KF-09, KNF-07–KNF-08, KNF-10–KNF-12. Ikrom menyelaraskan pesan/lingkungan dengan Putu, metadata/manual dengan Rizky, serta ACK/status/OLED dengan Ramdhani.
 
@@ -480,7 +480,7 @@ Rancangan terkait KF-09, KNF-07–KNF-08, KNF-10–KNF-12. Ikrom menyelaraskan p
 | KT-05 | Catat penempatan server, versi, jaringan, ketersediaan alat, dan kecukupan beban gabungan. | Pemilik komponen; Nicy mengoordinasikan. |
 | KT-06 | Selaraskan ruang lingkup pembanding non-YOLO yang berbeda antarbagian proposal. | Nicy/Rizky sebelum lingkup evaluasi difinalkan. |
 | KT-07 | Seragamkan penamaan judul sumber. | Nicy saat pemeriksaan dokumen. |
-| KT-08 dan catatan matriks | Lengkapi rumusan prosedur pengamatan/layanan serta rujukan persamaan yang belum seragam. | Nicy bersama pemilik materi sebelum prosedur dibekukan. |
+| KT-08 dan catatan matriks | Definisi kelompok dari frame sebelum hijau dan metadata snapshot telah diselaraskan pada paket revisi 25 November 2026. | Nicy bersama pemilik materi memeriksa penerapan pada data dan implementasi. |
 
 Tidak semua keputusan teknis harus selesai pada minggu 2. Yang diperlukan ialah batas fungsi/antarmuka konsisten dan setiap keputusan yang belum final mempunyai pemilik serta tahap penetapan.
 

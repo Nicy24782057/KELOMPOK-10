@@ -48,3 +48,7 @@ Catatan telaah dokumen berikut disiapkan untuk konfirmasi Nicy Putra Pratama.
 - [`8ad8933` — lingkungan AI dan dua kandidat YOLO Rizky](https://github.com/Nicy24782057/KELOMPOK-10/commit/8ad8933de704c6d651fa3ed450ee25efcf9ab7e3)
 
 Nicy mengisi URL commit pelaporan Minggu 4 yang mencakup hasil seluruh PIC setelah rekap dan review selesai.
+
+## Pembaruan berkas 25 November 2026
+
+Paket revisi menambahkan .env.example dan [panduan server dengan nama yang benar](../../infra/lingkungan-server.md). Nama lama infra/lingkugan-server.md menjadi pengarah ke panduan aktif. Perintah Compose kini menunjuk --env-file .env dan -f infra/compose.yaml dari root repositori. Temuan ketersediaan berkas tersebut telah ditangani dalam paket; isi konfigurasi lokal dan pengujian layanan pada perangkat target tetap pekerjaan pelaksana. Inventaris, review kesiapan, dan bukti layanan lama di atas tetap mengikuti kondisi yang benar-benar tercatat.

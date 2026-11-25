@@ -4,13 +4,13 @@
 |---|---|
 | Tim / sprint / minggu | KELOMPOK-10 / S01 / 3 |
 | Tugas / PIC | W03-T06 / Ikrom Safei |
-| Versi / tanggal | 0.1 / 29 Oktober 2026 |
+| Versi / tanggal | 0.2 / 25 November 2026 |
 | Status | Rencana UJI-01–UJI-34 tersedia; belum merupakan hasil pelaksanaan |
 | Lokasi | `KELOMPOK-10/docs/pengujian/rencana-uji.md` |
 
 ## 1. Acuan dan urutan pengujian
 
-ID, hubungan kebutuhan dan substansi hasil harapan mengikuti Tabel 6.2 proposal sempro `FINAL INI A(1).docx`, SRS dan matriks minggu 1. LLD minggu 3 menambahkan langkah operasional dan data batas tanpa menambah target kuantitatif baru. Rujukan nomor persamaan yang berbeda pada sumber dibaca menurut substansinya: kepadatan, titik tengah pusat, dasar+tambahan dan clamp.
+ID, hubungan kebutuhan dan substansi hasil harapan mengikuti Tabel 6.2 proposal sempro `FINAL INI A(2).docx`, SRS dan matriks minggu 1. LLD minggu 3 menambahkan langkah operasional dan data batas tanpa menambah target kuantitatif baru. Rujukan nomor persamaan yang berbeda pada sumber dibaca menurut substansinya: kepadatan, titik tengah pusat, dasar+tambahan dan clamp.
 
 | Tahap | Fokus / prasyarat | Pelaksana |
 |---|---|---|
@@ -52,7 +52,7 @@ Folder rencana bukti per kasus dapat memakai `KELOMPOK-10/evidence/S06/UJI-XX/`,
 
 **Prasyarat/masukan:** Papan/modul aktual, skema GPIO, 9 resistor/LED, OLED, satu suplai USB; alat ukur tersedia.
 
-**Langkah:** Saat daya mati cocokkan 9 cabang/polaritas/GND dan empat kabel OLED. Nyalakan satu suplai, ukur rail, jalankan satu keluaran per pin dan tampilan OLED; catat konsumsi/kondisi reset.
+**Langkah:** Saat daya mati cocokkan sembilan cabang/polaritas/GND dan empat kabel OLED dengan proposal revisi serta configs/pins.example.json: A 25/26/27, B 14/18/19, C 23/32/33, OLED SDA21/SCL22. Nyalakan satu suplai, ukur rail, jalankan satu keluaran per pin dan tampilan OLED; catat konsumsi/kondisi reset.
 
 **Hasil harapan/kriteria:** Sambungan sesuai tabel pin, resistor tiap LED, keluaran sesuai pin, OLED terbaca, catu bekerja sesuai rancangan; ketidakcocokan dicatat dan diperbaiki.
 
@@ -424,9 +424,9 @@ Folder rencana bukti per kasus dapat memakai `KELOMPOK-10/evidence/S06/UJI-XX/`,
 
 **Prasyarat/masukan:** Video menunjukkan awal hijau/garis henti, anotasi kelompok dan template lengkap.
 
-**Langkah:** Pilih contoh selesai hijau pertama, lintas hijau, kosong, hilang identitas, putus rekaman, serta selesai kuning/merah. Cek frame sekitar 5 detik sebelumnya dan kelompok saat awal hijau.
+**Langkah:** Pilih contoh selesai hijau pertama, lintas hijau, kosong, hilang identitas, putus rekaman, serta selesai kuning/merah. Periksa waktu frame sekitar lima detik sebelum hijau aktual dan anotasi anggota kelompok pada frame tersebut. Cocokkan initial_queue_count dengan manual_total pada anotasi sah. Sertakan kasus kendaraan baru masuk setelah snapshot tetapi sebelum hijau; pastikan kendaraan itu tidak ditambahkan. Periksa waktu layanan mulai dari hijau aktual dan identitas kelompok tetap selama penelusuran.
 
-**Hasil harapan/kriteria:** Jumlah frame dan kelompok awal terpisah; hanya hijau dijumlahkan. Ketidakpastian/status benar, T lengkap tidak dibuat dari batas bawah atau peristiwa nonhijau.
+**Hasil harapan/kriteria:** Kelompok awal berasal dari kendaraan acuan manual yang memenuhi ROI pada frame kepadatan terpilih; jumlah anggota sama dengan manual_total pada anotasi sah. Keanggotaan tidak bertambah setelah waktu frame. Waktu layanan dimulai saat hijau aktual dan hanya interval hijau dijumlahkan. Ketidakpastian/status benar; T lengkap tidak dibuat dari batas bawah atau peristiwa nonhijau.
 
 **Bukti:** Frame/time offset, video/anotasi anggota, green_segments_json dan status penyelesaian.
 
@@ -468,7 +468,7 @@ Kategori acuan memakai k manual dan K1/K2 beku yang juga dipakai sistem. Buat ma
 
 ### 5.3 Layanan kelompok awal
 
-T_i hanya lengkap bila kelompok awal terverifikasi selesai saat hijau (atau kosong terverifikasi dengan T_i=0). Akumulasi menghitung hijau saja. P90 nearest-rank hanya untuk kategori dengan seluruh T_i diketahui: `r=ceil(0,90n)` dan `g_raw=ceil(T_(r))` detik.
+Kelompok awal ditetapkan dari anotasi manual pada frame kepadatan sebelum hijau dan keanggotaannya tetap. T_i hanya lengkap bila kelompok tersebut terverifikasi selesai saat hijau (atau frame kepadatan sah menunjukkan kelompok kosong dengan T_i=0). Akumulasi menghitung hijau saja. P90 nearest-rank hanya untuk kategori dengan seluruh T_i diketahui: `r=ceil(0,90n)` dan `g_raw=ceil(T_(r))` detik.
 
 Pada kandidat/final g, `coverage=100×ΣI_i(g)/n_layanan`, dengan I=1 hanya bila selesai terverifikasi dan T_i≤g. Semua sampel layanan berkategori sah yang dipilih, termasuk penyelesaian belum pasti, berada pada penyebut. Unknown bukan keberhasilan. Kategori tanpa sampel belum dapat dinilai. Baris frame/acuan tidak layak yang tak dapat diberi kategori dilaporkan terpisah dengan alasan/pengganti.
 
@@ -490,7 +490,7 @@ Kuning 3 detik, merah bersama 1 detik, pemicu sisa 1 detik dan posisi lock diper
 | PU-04 / KT-04 | Papan/pin/OLED aktual, resolusi alat dan toleransi timing | Ramdhani + Ikrom | UJI-01, UJI-04, UJI-12–UJI-20 |
 | PU-05 / KT-05 | Penempatan server/GPU, layanan/volume/TLS/ACL, lama dan jumlah giliran beban | Putu + Rizky | UJI-21–UJI-27 |
 | PU-06 / KT-06 | Penyelarasan ruang lingkup pembanding non-YOLO pada naskah | Nicy + Rizky | Sebelum lingkup evaluasi final; tidak menambah UJI rekaan |
-| PU-07 / KT-07–KT-08 | Judul, rujukan persamaan dan instruksi editorial naskah sumber | Nicy bersama pemilik materi | Sebelum dokumen akhir/prosedur dibekukan |
+| PU-07 / KT-07–KT-08 | Definisi kelompok dan prosedur telah diselaraskan; judul dan rujukan metrik naskah akhir tetap diperiksa | Nicy bersama pemilik materi | Review tim dan naskah akhir; pengambilan data memakai definisi kelompok pada revisi ini |
 
 ## 7. Pencatatan temuan dan uji ulang
 

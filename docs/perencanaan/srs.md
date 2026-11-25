@@ -8,11 +8,12 @@
 | Tim | KELOMPOK-10 |
 | PIC penyusunan | Nicy Putra Pratama — Project Lead dan System Analyst |
 | Kode pekerjaan | S01, minggu 1, W01-T01 |
-| Versi dokumen | 0.1 |
+| Versi dokumen | 0.2 |
 | Tanggal penyusunan draf | 29 Oktober 2026 |
+| Tanggal revisi | 25 November 2026 |
 | Status | Draf untuk pemeriksaan |
 | Lokasi pengumpulan | `KELOMPOK-10/docs/perencanaan/srs.md` |
-| Acuan utama | Proposal sempro `FINAL INI A(1).docx` yang diberikan pengguna |
+| Acuan utama | Proposal sempro `FINAL INI A(2).docx` yang diberikan pengguna |
 
 Dokumen ini menetapkan kebutuhan prototipe, sumber daya, data, antarmuka, waktu pengembangan, jasa, dan maintenance sebagai dasar perancangan serta pengujian. Kode KF, KNF, dan KJ dipertahankan dari proposal sempro agar kebutuhan dapat ditelusuri ke pekerjaan dan kasus uji. Pilihan implementasi yang belum ditentukan serta bagian naskah yang belum konsisten dicatat pada daftar keputusan terbuka.
 
@@ -34,7 +35,7 @@ SRS digunakan oleh anggota tim untuk menyusun HLD/LLD, mengembangkan modul, mera
 
 Judul pada identitas mengikuti sampul proposal yang dilampirkan. Referensi teknis dan daftar pustaka yang mendasari proposal tetap merujuk naskah sempro tersebut. Perbedaan judul pada bagian tertentu dicatat pada keputusan terbuka; dokumen sumber tidak diubah melalui penyusunan SRS ini.
 
-**Identitas berkas sumber:** SHA-256 `455b591d246bc375a5fefe5ba834ebebb7e38d695a5f8c5d87e61a7bc5b90f15`.
+**Identitas berkas sumber:** SHA-256 `5b8306b6f8a05c18b547316dc017b716ad4a72870cae9c1b3bf08c0ae72aab2b`. Rincian acuan dan aturan bersama ada pada [acuan revisi](acuan-revisi.md).
 
 ### 1.3 Istilah utama
 
@@ -268,7 +269,7 @@ Spesifikasi dan jumlah mengikuti Tabel 4.9 proposal sempro. Status ketersediaan/
 | Breadboard dan jumper | 1 breadboard 830 titik; 40 pcs female-to-male dan 40 pcs male-to-male | Perakitan dan sambungan. |
 | Kabel dan adaptor | 1 kabel USB data; 1 adaptor 5 V DC, 2 A | Pemrograman dan catu daya. |
 
-Pemetaan GPIO, sambungan I2C, resistor, dan skema catu daya diperinci dalam LLD. Rangkaian menggunakan satu sumber catu daya pada satu waktu sesuai rancangan papan. Kemampuan penyediaan arus adaptor dan beban aktual diperiksa pada implementasi.
+Pemetaan GPIO mengikuti Tabel 5.4 proposal revisi: A merah/kuning/hijau = 25/26/27, B = 14/18/19, dan C = 23/32/33. OLED memakai SDA21 dan SCL22. Nilai yang sama tersedia pada configs/pins.example.json serta LLD dan skema perangkat. Rangkaian menggunakan satu sumber catu daya pada satu waktu sesuai rancangan papan. Kemampuan penyediaan arus adaptor dan beban aktual diperiksa pada implementasi.
 
 ### 5.2 Server
 
@@ -394,9 +395,9 @@ Waktu frame sumber dan waktu penerimaan server dicatat terpisah bila timestamp s
 - Ikuti kelompok hingga kendaraan terakhir melewati garis henti. Pada beberapa lajur, gunakan kendaraan terakhir dari seluruh kelompok yang ditandai.
 - Jika kelompok belum selesai pada satu hijau, lanjutkan penelusuran pada hijau berikutnya selama identitas kelompok masih dapat dipastikan. Jumlahkan waktu hijau yang digunakan; interval kuning dan merah dikeluarkan dari akumulasi.
 - Kelompok tidak terlacak, rekaman terputus, atau penyelesaian tidak pasti diberi status sesuai informasi yang tersedia. Waktu selesai tidak dibuat tanpa dukungan pengamatan. Pada evaluasi cakupan kategori, sampel belum pasti tetap diperhitungkan sebagai tidak terverifikasi berhasil.
-- Frame kepadatan, kelompok awal, akumulasi waktu layanan, serta status penyelesaian merupakan data berbeda yang dihubungkan oleh identitas siklus.
+- Frame kepadatan, keanggotaan kelompok awal, akumulasi waktu layanan, serta status penyelesaian dihubungkan oleh identitas siklus. Kelompok ditetapkan dari anotasi manual pada frame yang sama, sehingga initial_queue_count sama dengan manual_total pada frame valid dengan anotasi manual yang sah; hitungan AI dapat berbeda.
 
-Rancangan prosedur di atas mengikuti rincian Subbab 5.3 dan kasus UJI-32–UJI-34. Perbedaan istilah jumlah kendaraan awal pada bagian lain dicatat sebagai penyelarasan naskah pada Bagian 9.
+Rancangan prosedur di atas mengikuti proposal revisi Subbab 4.6 dan 5.3 serta kasus UJI-32–UJI-34. Penetapan kelompok pada frame sebelum hijau dan pengukuran layanan sejak awal hijau merupakan dua waktu yang berbeda. Aturan bersama dirinci pada acuan-revisi.md.
 
 ### 8.4 Pembekuan dan pemisahan versi
 
@@ -423,7 +424,7 @@ Penanda KT berikut merupakan daftar tindak lanjut dalam draf ini, bukan penggant
 | KT-05 | Penempatan server aktual, versi lingkungan, kondisi jaringan, status ketersediaan hardware, dan kecukupan spesifikasi. | Putu/Rizky/Ramdhani sesuai komponen; Nicy mengoordinasikan. | Persiapan dan pengujian beban/integrasi terkait. |
 | KT-06 | Ruang lingkup pembanding non-YOLO berbeda: Subbab 2.1, 4.1.2, dan BMC menyebut perbandingan dengan sekurangnya satu detektor non-YOLO pada frame/perangkat sama; Tabel 1.3 dan Subbab 6.1 menyebut kajian literatur dengan implementasi berfokus pada YOLO. Rumusan perlu diselaraskan sebelum ditetapkan sebagai beban uji. | Nicy bersama Rizky dan tim. | Pemeriksaan kebutuhan sebelum memfinalkan ruang lingkup evaluasi detektor. |
 | KT-07 | Judul pada sampul berbeda dari penamaan pada Subbab 4.1.1. Draf ini menggunakan judul sampul; keseragaman judul sumber perlu diperiksa. | Nicy. | Pemeriksaan dokumen kebutuhan/naskah. |
-| KT-08 | Definisi kelompok awal pada proposal revisi telah ditetapkan berdasarkan frame kepadatan sebelum hijau aktual. Prosedur pengamatan, panduan dataset, pembagian kerja, dan rencana uji perlu diselaraskan dengan ketentuan tersebut. | Nicy bersama Putu, Rizky, dan Ikrom sesuai isi. | Sebelum prosedur pengamatan dan kalibrasi dibekukan. |
+| KT-08 | Definisi kelompok dari frame sebelum hijau telah diselaraskan pada SRS, HLD, prosedur, panduan dataset, pembagian kerja, dan UJI-32 dalam revisi 25 November 2026. Pelaksanaan dan penerimaan tetap memerlukan bukti aktual. | Nicy bersama Putu, Rizky, dan Ikrom sesuai isi. | Penyelarasan berkas selesai; review tim dan validasi data sebelum kalibrasi dibekukan. |
 
 Keputusan aktual, dasar, tanggal, dan versi perubahannya dicatat setelah disepakati. Daftar ini tidak menetapkan varian model, angka ambang, atau hasil pengamatan yang belum diperoleh.
 

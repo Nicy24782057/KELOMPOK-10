@@ -4,13 +4,13 @@
 |---|---|
 | Tim / sprint / minggu | KELOMPOK-10 / S01 / 3 |
 | Tugas / PIC | W03-T04 / Rizky Bintang Fadillah |
-| Versi / tanggal | 0.1 / 29 Oktober 2026 |
+| Versi / tanggal | 0.2 / 25 November 2026 |
 | Status | Prosedur lengkap untuk review; sumber/ROI/model/data aktual ditetapkan pada tahap pelaksanaan |
 | Lokasi | `KELOMPOK-10/docs/perencanaan/prosedur-ai-dan-pengamatan.md` |
 
 ## 1. Acuan, cakupan dan keluaran
 
-Proposal sempro `FINAL INI A(1).docx` Subbab 4.2–4.6, 5.3 dan Bab 6, SRS Bagian 4/8, serta HLD Bagian 4.1/4.4 menjadi acuan. Tiga CCTV dari lokasi berbeda dipetakan ke fase virtual A/B/C. Pengamatan pagi, siang, sore mengikuti keterlihatan kendaraan/garis henti. Malam di luar pengujian visual. Sistem adalah prototipe, sehingga siklus lampu jalan pada rekaman dan siklus LED ESP32 adalah dua pengamatan berbeda.
+Proposal sempro `FINAL INI A(2).docx` Subbab 4.2–4.6, 5.3 dan Bab 6, SRS Bagian 4/8, serta HLD Bagian 4.1/4.4 menjadi acuan. Tiga CCTV dari lokasi berbeda dipetakan ke fase virtual A/B/C. Pengamatan pagi, siang, sore mengikuti keterlihatan kendaraan/garis henti. Malam di luar pengujian visual. Sistem adalah prototipe, sehingga siklus lampu jalan pada rekaman dan siklus LED ESP32 adalah dua pengamatan berbeda.
 
 YOLO mendeteksi empat kelas: `car` (mobil), `motorcycle` (sepeda motor), `bus`, dan `truck`. Varian, bobot, ukuran input, confidence, NMS, pustaka dan perangkat komputasi dipilih saat implementasi. Setiap kendaraan bernilai satu unit, termasuk yang berhenti atau bergerak. Tidak ada konversi SMP/PCE.
 
@@ -47,7 +47,8 @@ Satu pemicu unik menghasilkan satu measurement_id. Deduplikasi trigger dikelola 
 init: validasi konfigurasi, muat model satu kali, mulai reader A/B/C
 measure(target):
   pilih kamera dari fase sasaran yang tervalidasi
-  salin frame terakhir + metadata + konfigurasi versinya secara konsisten
+  salin frame terbaru yang berhasil didekode + metadata + konfigurasi versinya secara konsisten
+  catat frame_id, frame_received_ts, frame_selected_ts, dan frame_source_ts bila tersedia
   bila frame/config gagal: kembalikan valid=false, count/k=null, reason
   inferensi satu frame utuh; petakan koordinat hasil ke frame asli
   saring kelas car, motorcycle, bus, truck
@@ -86,7 +87,7 @@ Pemilihan model/setting menggunakan data pengembangan/kalibrasi, kemudian bekuka
 1. Ikrom/Rizky menetapkan sample_id, dataset_group, kamera, sumber/rekaman, tanggal dan periode. Pastikan video memuat garis henti dan keadaan sinyal pendekat yang dapat ditentukan; bila hijau aktual tidak dapat diidentifikasi, catat keterbatasannya dan cari bahan yang layak untuk analisis layanan.
 2. Tentukan awal hijau aktual dari rekaman pendekat tersebut. Ambil frame utuh sekitar **5 detik sebelumnya**. Catat offset frame, offset awal hijau dan selisih aktual; jangan menyatakan tepat 5 detik bila kenyataannya berbeda.
 3. Hitung manual empat kelas pada frame kepadatan dengan ROI yang disepakati. Jalankan AI pada frame yang sama dengan versi beku untuk pembandingan. Simpan frame/anotasi, jumlah per kelas, total, panjang/lajur, dan k manual/AI.
-4. Pada frame kepadatan terpilih sebelum hijau aktual, tandai seluruh kendaraan yang memenuhi aturan ROI berdasarkan anotasi manual, termasuk kendaraan berhenti maupun bergerak. Beri initial_group_id dan catat jumlah anggotanya pada initial_queue_count. Pada frame valid, jumlah anggota kelompok ini sama dengan manual_total. Keanggotaan dipertahankan selama penelusuran; kendaraan yang masuk setelah waktu frame terpilih tidak ditambahkan. Saat hijau aktual dimulai, mulai pengukuran waktu layanan kelompok yang sama. Untuk beberapa lajur, ikuti seluruh anggota kelompok awal.
+4. Pada frame kepadatan terpilih sebelum hijau aktual, tandai seluruh kendaraan yang memenuhi aturan ROI berdasarkan anotasi manual, termasuk kendaraan berhenti maupun bergerak. Beri initial_group_id dan catat jumlah anggotanya pada initial_queue_count. Pada frame valid dengan anotasi manual yang sah, jumlah anggota kelompok ini sama dengan manual_total. Keanggotaan dipertahankan selama penelusuran; kendaraan yang masuk setelah waktu frame terpilih tidak ditambahkan. Saat hijau aktual dimulai, mulai pengukuran waktu layanan kelompok yang sama. Untuk beberapa lajur, ikuti seluruh anggota kelompok awal.
 5. Ikuti kelompok sampai anggota terakhir melewati garis henti. Catat interval hijau lengkap dan offset penyelesaian. Jika belum selesai pada hijau pertama, lanjutkan hijau berikutnya hanya selama identitas kelompok yang sama masih dapat dipastikan. Kuning/merah tidak masuk akumulasi.
 6. Tentukan status penyelesaian dan batas informasi. Simpan bukti, green_segments_json dan hasil layanan. Jika identitas hilang/rekaman putus, waktu selesai tetap kosong dan statusnya tidak dianggap berhasil.
 7. Reviewer memeriksa frame, anotasi, sinyal, identitas kelompok, perhitungan dan split. Perubahan manual dicatat; angka asli tidak diganti tanpa jejak alasan.
@@ -102,7 +103,7 @@ Contoh demonstrasi: kelompok memakai hijau pertama 20 detik dan selesai pada det
 | completion_status | service_time_s | Perlakuan cakupan |
 |---|---|---|
 | `complete_green` | Akumulasi hijau terverifikasi sampai selesai | Berhasil bila T_i ≤ g evaluasi |
-| `empty_verified` | 0 hanya bila kelompok awal memang kosong dan teramati | Berhasil pada g sah |
+| `empty_verified` | 0 hanya bila frame kepadatan dan anotasi manual sah menunjukkan kelompok kosong | Berhasil pada g sah |
 | `incomplete_observed` | Kosong; batas bawah diketahui bila dapat diukur | Tetap penyebut, belum terverifikasi berhasil |
 | `untraceable` | Kosong | Tetap penyebut, bukan berhasil |
 | `recording_interrupted` | Kosong | Tetap penyebut, bukan berhasil |
@@ -133,4 +134,4 @@ MAE dan E_N dihitung per kamera pada frame uji yang sama; E_N memakai jumlah sel
 | Parameter beku dan laporan kalibrasi | Putu bersama Rizky/Ikrom; kalibrasi sebelum evaluasi |
 | `KELOMPOK-10/docs/pengujian/rencana-uji.md` | Ikrom; UJI-02–UJI-11 dan UJI-29–UJI-34 |
 
-Prosedur ini mengikuti proposal revisi yang menetapkan kelompok awal berdasarkan frame kepadatan sebelum hijau aktual. Keanggotaan kelompok dipertahankan, sedangkan waktu layanan mulai diukur saat hijau aktual menyala. Penyelarasan panduan dataset, pembagian kerja, dan rencana uji dengan ketentuan tersebut perlu dicatat pada indeks perencanaan.
+Prosedur ini mengikuti proposal revisi yang menetapkan kelompok awal berdasarkan frame kepadatan sebelum hijau aktual. Keanggotaan kelompok dipertahankan, sedangkan waktu layanan mulai diukur saat hijau aktual menyala. SRS, HLD, panduan dataset, pembagian kerja, dan UJI-32 pada paket revisi memakai definisi yang sama; rincian perubahan dicatat pada indeks perencanaan dan catatan revisi.

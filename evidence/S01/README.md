@@ -152,3 +152,6 @@ Bagian ini dilengkapi saat pekerjaan minggu 3 dilaksanakan, dengan tabel hasil p
 - [ ] Nicy mencatat pemeriksaan dan penyelesaian/tindak lanjut temuan.
 - [ ] URL commit pelaporan tiap minggu sudah dicatat sesuai hasil yang diperiksa.
 
+## Acuan revisi 25 November 2026
+
+Bagian minggu 1–3 di atas merupakan riwayat penyusunan pada versi asal. Untuk pelaksanaan baru gunakan [indeks revisi](../../docs/perencanaan/indeks-perencanaan.md) dan [acuan metode](../../docs/perencanaan/acuan-revisi.md). Kelompok awal kini ditegaskan berasal dari frame kepadatan sebelum hijau, dengan keanggotaan tetap. Paket juga menyamakan GPIO dengan proposal revisi. Pemeriksaan berkas ada pada evidence/penyelarasan-2026-11-25/; status penerimaan PM, hasil perangkat, dan bukti aktivitas anggota tidak diubah oleh penyelarasan ini.

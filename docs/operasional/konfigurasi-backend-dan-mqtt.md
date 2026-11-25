@@ -4,13 +4,13 @@
 |---|---|
 | Tim / sprint / minggu | KELOMPOK-10 / S01 / 3 |
 | Tugas / PIC | W03-T02, W03-T03 / Putu Radit Ardika |
-| Versi / tanggal | 0.1 / 29 Oktober 2026 |
+| Versi / tanggal | 0.2 / 25 November 2026 |
 | Status | Kontrak dan contoh lengkap untuk review; belum diuji publish/subscribe atau perangkat |
 | Lokasi | `KELOMPOK-10/docs/operasional/konfigurasi-backend-dan-mqtt.md` |
 
 ## 1. Acuan dan batas antarmuka
 
-Acuan: proposal sempro `FINAL INI A(1).docx` Subbab 5.2.2–5.2.3/Tabel 5.5–5.6, SRS KF-05–KF-11, dan HLD Bagian 4.2–4.4. AI/pembaca CCTV dan backend berjalan pada host Ubuntu; Mosquitto, Node-RED, dan InfluxDB memakai Docker di server yang sama. Pengukuran AI diserahkan ke backend melalui antarmuka internal; MQTT measurement adalah salinan metadata untuk pencatatan. Frame/video tidak masuk payload MQTT.
+Acuan: proposal sempro `FINAL INI A(2).docx` Subbab 5.2.2–5.2.3/Tabel 5.5–5.6, SRS KF-05–KF-11, dan HLD Bagian 4.2–4.4. AI/pembaca CCTV dan backend berjalan pada host Ubuntu; Mosquitto, Node-RED, dan InfluxDB memakai Docker di server yang sama. Pengukuran AI diserahkan ke backend melalui antarmuka internal; MQTT measurement adalah salinan metadata untuk pencatatan. Frame/video tidak masuk payload MQTT.
 
 Keputusan LLD baru: JSON `schema_version` 1.0, QoS 1 dan retain false untuk kelima jenis pesan, ID/event tambahan untuk penelusuran, serta satu kandidat pertama yang sah per giliran. Kebutuhan sumber mewajibkan QoS 1 plan/ACK dan retain false plan; pilihan pesan lain di sini menjadi acuan implementasi yang perlu diverifikasi.
 
@@ -210,3 +210,9 @@ InfluxDB tidak menyimpan field null sebagai nilai numerik: tulis valid=false/rea
 - UJI-09–UJI-11 memeriksa aritmetika dan batas; UJI-13–UJI-19 memeriksa respons/lock/duplikasi/fallback.
 - UJI-21–UJI-26 memeriksa trace, persistensi, independensi, beban dan autentikasi/TLS.
 - Hasil pemeriksaan format pada paket minggu 3 hanya bukti berkas; keberhasilan runtime dan perangkat dibuktikan pada tahap berikutnya.
+
+## Penyelarasan proposal 25 November 2026
+
+Kalibrasi memakai kelompok dari anotasi manual pada frame sekitar lima detik sebelum hijau aktual. Kelompok tetap; kendaraan setelah snapshot tidak ditambahkan. Waktu layanan dimulai saat hijau aktual dan hanya hijau dijumlahkan. Definisi ini berlaku untuk dataset kalibrasi/uji; backend operasional menerima satu measurement dari snapshot kamera fase berikutnya dan tidak menandai ulang kelompok berdasarkan lampu CCTV.
+
+Identitas frame dan frame_selected_ts pada measurement diteruskan ke catatan traffic_measurement bersama waktu penerimaan dan waktu sumber bila tersedia. Contoh JSON yang sudah ada menyertakan field ini. Semua contoh tetap example_only=true; angka ambang, durasi, dan umur pada control.example.json belum merupakan parameter operasional terverifikasi.

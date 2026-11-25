@@ -4,9 +4,11 @@
 |---|---|
 | Tim / sprint / minggu | KELOMPOK-10 / S01 / 3 |
 | Tugas / PIC | W03-T05 / Ikrom Safei |
-| Versi / tanggal | 0.1 / 29 Oktober 2026 |
+| Versi / tanggal | 0.2 / 25 November 2026 |
 | Status | Dua template header kosong; belum memuat pengamatan aktual |
 | Lokasi | `KELOMPOK-10/data/templates/README.md` |
+
+Acuan metode adalah [proposal revisi dan aturan bersama](../../docs/perencanaan/acuan-revisi.md). Nama kolom initial_queue_count dipertahankan untuk kompatibilitas CSV dan kini menyatakan jumlah anggota kelompok dari frame sebelum hijau. Dataset aktual yang dibuat memakai definisi lama harus diberi versi asal dan ditinjau atau dianotasi ulang sebelum digabungkan.
 
 ## 1. Berkas dan aturan pengisian
 
@@ -66,9 +68,9 @@ Rencana setiap kamera: 15 kalibrasi (5 pagi/5 siang/5 sore) dan 15 uji pada hari
 | `parameter_version` | Teks atau kosong | Versi ambang/durasi beku; kosong sebelum kalibrasi, jangan menebak kategori. |
 | `manual_category` | rendah / sedang / tinggi / kosong | Dari k manual dan ambang versi yang dicatat. |
 | `ai_category` | rendah / sedang / tinggi / kosong | Dari k AI dan ambang yang sama. |
-| `initial_group_id` | Teks atau kosong | Identitas kelompok yang sudah antre pada awal hijau aktual. |
-| `initial_queue_count` | Integer ≥0 atau kosong | Jumlah kelompok awal terpisah dari manual_total/ai_total frame sebelumnya. |
-| `initial_queue_note` | Teks | Penandaan anggota/lajur dan aturan membedakan pendatang baru. |
+| `initial_group_id` | Teks atau kosong | Identitas kelompok kendaraan yang memenuhi aturan ROI pada frame kepadatan terpilih sebelum hijau aktual. |
+| `initial_queue_count` | Integer ≥0 atau kosong | Jumlah anggota kelompok awal dari anotasi manual pada frame kepadatan terpilih. Pada frame valid dengan anotasi manual yang sah, sama dengan manual_total; tidak diwajibkan sama dengan ai_total. |
+| `initial_queue_note` | Teks | Rujukan penandaan anggota dan lajur pada frame kepadatan terpilih; kendaraan yang masuk setelah waktu frame tidak ditambahkan. |
 | `green_segments_json` | JSON array atau kosong | Daftar interval hijau dan batas yang diamati/digunakan, lihat contoh di bawah. |
 | `observed_green_sum_s` | Detik ≥0 atau kosong | Akumulasi hijau teramati, dapat parsial; bukan waktu selesai otomatis. |
 | `completion_status` | Enum status | complete_green, empty_verified, incomplete_observed, untraceable, recording_interrupted, completed_non_green, unobserved. |
@@ -100,7 +102,7 @@ Contoh **demonstrasi**, tidak terdapat dalam CSV kosong:
 
 Jika anggota terakhir terverifikasi lewat saat offset 167 pada hijau kedua, T=20+7=27 detik, completion_status=complete_green. Merah/kuning antara 120–160 tidak dijumlahkan. Jika kelompok hilang pada offset 165, T lengkap kosong; observed_green_sum dapat 25 detik dan status untraceable, dengan batas bawah hanya bila benar-benar dapat disimpulkan dari pengamatan.
 
-Kelompok kosong yang terverifikasi pada awal hijau memakai empty_verified, initial_queue_count=0 dan service_time_s=0. Count frame lima detik sebelumnya tetap diisi berdasarkan frame; tidak otomatis disalin ke initial_queue_count. Penyelesaian saat kuning/merah memakai completed_non_green, service_time_s kosong, dan alasan/peristiwa dicatat.
+Kelompok kosong yang terverifikasi pada frame kepadatan sebelum hijau memakai empty_verified, initial_queue_count=0, manual_total=0, dan service_time_s=0. Keanggotaan kelompok mengikuti frame kepadatan terpilih dan dipertahankan ketika hijau aktual dimulai. Frame atau anotasi manual yang tidak valid tidak dianggap sebagai kelompok kosong. Penyelesaian saat kuning/merah memakai completed_non_green, service_time_s kosong, dan alasan/peristiwa dicatat.
 
 ## 4. Validasi data sebelum analisis
 
@@ -112,6 +114,7 @@ Kelompok kosong yang terverifikasi pada awal hijau memakai empty_verified, initi
 6. service_time_s hanya untuk complete_green/empty_verified. Penyelesaian belum pasti tidak diisi batas bawah sebagai waktu selesai. Sampel layanan berkategori sah tetap masuk penyebut cakupan; data tidak layak kategori dilaporkan terpisah, bukan diam-diam dihapus.
 7. completion_within_evaluated_green merupakan hasil analisis: true hanya bila T lengkap ≤g final, false bila T>g atau completion belum pasti, kosong bila g/kategori belum tersedia. Kategori tanpa sampel tidak memperoleh 100%.
 8. Reviewer mengisi nama/status setelah pemeriksaan aktual. Simpan riwayat koreksi, rujukan bukti dan keterbatasan di notes/annotation_path.
+9. Pada frame valid dengan anotasi manual yang sah, initial_queue_count harus sama dengan manual_total. Periksa penandaan anggota pada frame kepadatan yang sama dan bukti bahwa keanggotaan dipertahankan selama penelusuran.
 
 ## 5. Perhitungan dan hubungan dokumen
 
