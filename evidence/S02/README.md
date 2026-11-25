@@ -60,3 +60,17 @@ Catatan pemeriksaan berkas 25 November 2026 menggunakan snapshot repositori [`12
 | Pelaporan Minggu 4 | Bukti S02 memakai README.md, log-aktivitas.md, status-layanan.txt, dan lingkungan-ai.txt langsung di evidence/S02/. | Gunakan susunan berkas yang sama. Rincian pemeriksaan berkas dicatat pada [log aktivitas S02](log-aktivitas.md). Ikrom memperbarui rekap, lalu Nicy mengonfirmasi review sesuai bukti aktual. |
 
 Pemeriksaan ini memperbaiki rujukan dokumentasi dan pencatatan tindak lanjut S02. Status kesiapan komponen, hasil layanan lama, dan keputusan review tetap mengikuti bukti yang tercatat. Commit yang disarankan untuk perubahan berkas ini: `S02-W04: rapikan rekap dan rujukan dokumen`. URL commit diisi setelah push yang sebenarnya.
+
+### Kelengkapan konfigurasi lingkungan
+
+Pembaruan berkas 25 November 2026 melengkapi tindak lanjut W04-T01 berdasarkan snapshot [`29388b8`](https://github.com/Nicy24782057/KELOMPOK-10/commit/29388b82459d16153dcb10d60c5c949fb58a3e6b). Contoh konfigurasi ditambahkan pada root proyek agar langkah penyiapan pada panduan server mempunyai berkas sumber yang sesuai.
+
+| Butir | Hasil pemeriksaan berkas | Tindak lanjut |
+|---|---|---|
+| Contoh variabel lingkungan | [.env.example](../../.env.example) tersedia dalam pembaruan ini. Seluruh nama variabel yang dirujuk infra/compose.yaml tercakup, nilai default sesuai Compose, dan isian kredensial masih kosong. | Salin ke .env lokal, lalu isi nilai yang diperlukan sebelum menjalankan layanan. |
+| Pencatatan Git | Aturan .gitignore mengizinkan .env.example dan mengabaikan .env lokal. | Sertakan .env.example saat mengunggah pembaruan ke GitHub. |
+| MQTT | Contoh mencakup username/password untuk penyiapan passwordfile dan pengujian klien. Mosquitto tetap membaca passwordfile. | Putu menyiapkan passwordfile dan sertifikat lokal mengikuti [panduan server](../../infra/lingkungan-server.md). |
+| Rekap S01 | Pada snapshot yang diperiksa, README S01 tergantikan oleh laporan pemeriksaan tambahan. Pembaruan ini memulihkan isi lengkap rekap tersebut persis dari commit [1293fef](https://github.com/Nicy24782057/KELOMPOK-10/commit/1293fefcf6e6924504bd120186f9d43f39c06f63). | Gunakan rekap S01 yang dipulihkan sebagai acuan. Pekerjaan lanjutan tetap dicatat pada sprint pelaksanaannya. |
+| Validasi | Format YAML Compose, cakupan variabel, nilai default, placeholder kredensial, aturan Git, dan rujukan berkas diperiksa secara lokal. Docker dan layanan tidak dijalankan ulang dalam penyusunan berkas ini. | Pengujian layanan pada lingkungan pelaksana mengikuti bukti aktual. |
+
+Kekurangan berkas contoh lingkungan yang dicatat sebelumnya ditangani oleh pembaruan ini. Inventaris fisik dan keputusan kesiapan pada rekap tetap mengikuti bukti yang tersedia. Catatan kegiatan ada pada [log aktivitas S02](log-aktivitas.md). Pesan commit yang disarankan: `S02-W04: lengkapi konfigurasi lingkungan dan pulihkan rekap S01`. URL commit ditambahkan setelah push yang sebenarnya.
