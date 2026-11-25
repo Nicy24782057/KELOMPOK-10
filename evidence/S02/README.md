@@ -49,6 +49,14 @@ Catatan telaah dokumen berikut disiapkan untuk konfirmasi Nicy Putra Pratama.
 
 Nicy mengisi URL commit pelaporan Minggu 4 yang mencakup hasil seluruh PIC setelah rekap dan review selesai.
 
-## Pembaruan berkas 25 November 2026
+### Tindak lanjut dokumen Minggu 4
 
-Paket revisi menambahkan .env.example dan [panduan server dengan nama yang benar](../../infra/lingkungan-server.md). Nama lama infra/lingkugan-server.md menjadi pengarah ke panduan aktif. Perintah Compose kini menunjuk --env-file .env dan -f infra/compose.yaml dari root repositori. Temuan ketersediaan berkas tersebut telah ditangani dalam paket; isi konfigurasi lokal dan pengujian layanan pada perangkat target tetap pekerjaan pelaksana. Inventaris, review kesiapan, dan bukti layanan lama di atas tetap mengikuti kondisi yang benar-benar tercatat.
+Catatan pemeriksaan berkas 25 November 2026 menggunakan snapshot repositori [`1293fef`](https://github.com/Nicy24782057/KELOMPOK-10/commit/1293fefcf6e6924504bd120186f9d43f39c06f63). Hasil Sprint 1 digunakan sebagai acuan yang sudah tersedia. Tindak lanjut dicatat dalam rekap dan log S02 untuk mendukung W04-T05 dan W04-T06.
+
+| Butir | Hasil pemeriksaan berkas | Tindak lanjut |
+|---|---|---|
+| Acuan perencanaan | SRS, HLD, rancangan terperinci, prosedur pengamatan, dan rencana uji sudah tersedia pada repositori. | Gunakan [indeks perencanaan](../../docs/perencanaan/indeks-perencanaan.md) sebagai rujukan. Catatan tindak lanjut berikutnya masuk pada sprint pelaksanaannya. |
+| Dokumen lingkungan | [Panduan server](../../infra/lingkungan-server.md) tersedia; nama lama menjadi pengarah. `.env.example` belum ditemukan pada snapshot yang diperiksa. | Putu melengkapi contoh variabel lingkungan sebelum rekap kesiapan diperbarui. Pengaturan lokal dan pengujian layanan mengikuti bukti pelaksana. |
+| Pelaporan Minggu 4 | Bukti S02 memakai README.md, log-aktivitas.md, status-layanan.txt, dan lingkungan-ai.txt langsung di evidence/S02/. | Gunakan susunan berkas yang sama. Rincian pemeriksaan berkas dicatat pada [log aktivitas S02](log-aktivitas.md). Ikrom memperbarui rekap, lalu Nicy mengonfirmasi review sesuai bukti aktual. |
+
+Pemeriksaan ini memperbaiki rujukan dokumentasi dan pencatatan tindak lanjut S02. Status kesiapan komponen, hasil layanan lama, dan keputusan review tetap mengikuti bukti yang tercatat. Commit yang disarankan untuk perubahan berkas ini: `S02-W04: rapikan rekap dan rujukan dokumen`. URL commit diisi setelah push yang sebenarnya.

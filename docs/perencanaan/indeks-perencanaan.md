@@ -52,6 +52,6 @@
 
 ## Riwayat dan pelaporan
 
-Dokumen/log evidence/S01 dan evidence/S02 tetap memuat riwayat pada tanggal asal. Pernyataan yang merujuk versi lama tidak menjadi acuan metode terbaru. Gunakan dokumen kerja pada indeks ini untuk pelaksanaan baru. Pemeriksaan paket ada pada [catatan revisi](../../CATATAN_REVISI_2026-11-25.md) dan evidence/penyelarasan-2026-11-25/.
+Dokumen/log evidence/S01 dan evidence/S02 tetap memuat riwayat pada tanggal asal. Pernyataan yang merujuk versi lama tidak menjadi acuan metode terbaru. Gunakan dokumen kerja pada indeks ini untuk pelaksanaan baru. Hasil S01 digunakan sebagai acuan pelaksanaan. Tindak lanjut pemeriksaan berkas dicatat pada [rekap S02 Minggu 4](../../evidence/S02/README.md#tindak-lanjut-dokumen-minggu-4) dan [log aktivitas S02](../../evidence/S02/log-aktivitas.md), mengikuti susunan berkas sprint yang sudah tersedia.
 
 Review penerimaan Nicy, kegiatan anggota, commit push, hasil layanan, foto rangkaian, dan hasil uji perangkat dicatat setelah benar-benar dilakukan. Pemeriksaan konsistensi berkas tidak menutup sprint atau meluluskan pengujian fisik.
