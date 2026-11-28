@@ -11,7 +11,7 @@ Ikrom merekap kesiapan komponen dan lingkungan pengembangan. Nicy Putra Pratama 
 | W04-T03 | Ramdhani | Inventaris diperbarui dari daftar Dhani dan konfirmasi tim. Seluruh sembilan LED berhasil menyala pada uji awal. Breadboard tersedia dan daya saat uji berasal dari port USB laptop. | [Inventaris komponen](../../docs/perangkat/inventaris.md) |
 | W04-T04 | Putu | Menurut laporan Putu, MQTT publish/subscribe di port 1883 dan MQTT TLS di port 8883 berhasil. Node-RED dan InfluxDB berhasil dijalankan dan diakses secara lokal. | [Laporan pemeriksaan layanan](status-layanan.txt) |
 | W04-T05 | Ikrom | Rekap mencakup hasil layanan lokal, pemeriksaan AI di CPU, dan data komponen yang dikonfirmasi tim. Ikrom memeriksa kesesuaian ringkasan dengan inventaris dan log sebelum push. | [Rekap Minggu 4](#minggu-4) dan [log aktivitas](log-aktivitas.md) |
-| W04-T06 | Nicy | Telaah awal tercatat. Keputusan akhir menunggu pemeriksaan Nicy atas inventaris dan rekap yang diperbarui. | [Review PM](#review-pm) |
+| W04-T06 | Nicy | Review akhir disetujui Nicy pada 28 November 2026. Sprint 2 siap ditutup. | [Review PM](#review-pm) |
 
 ### Lingkungan yang diperiksa
 
@@ -19,6 +19,7 @@ Ikrom merekap kesiapan komponen dan lingkungan pengembangan. Nicy Putra Pratama 
 |---|---|
 | Layanan server | Windows 11, Ubuntu WSL2, dan Docker Desktop. Tag image di Compose adalah `eclipse-mosquitto:2`, `nodered/node-red:4.1-debian`, dan `influxdb:2.7`. Versi Docker dan Compose belum dicatat di dokumen server. |
 | AI | Windows 11 dan Python 3.14.3 di `.venv`. PyTorch 2.14.1+cpu, Torchvision 0.29.1+cpu, OpenCV 5.0.0, dan Ultralytics 8.4.189. Pemuatan kedua kandidat tercatat di CPU dengan CUDA `False` pada lingkungan tersebut. |
+
 
 Hasil di atas berasal dari lingkungan pengembangan sementara. Pemeriksaan pada server Ubuntu dan GPU target, termasuk kinerja AI pada CCTV, mengikuti tahap implementasi. [Acuan server SRS](../../docs/perencanaan/srs.md#52-server)
 
@@ -30,7 +31,7 @@ Putu mencatat penggantian tag image Node-RED ke `4.1-debian`, pembuatan konfigur
 |---|---|---|
 | Putu | `infra/lingkungan-server.md` dan `.env.example` sudah tersedia. Laporan Putu mencatat uji layanan pada lingkungan lokal. | Catat versi Docker/Compose dan hasil pemeriksaan pada server target sesuai panduan. |
 | Ramdhani | Jumlah dan tipe komponen yang diketahui serta hasil uji nyala LED tercatat. Daya uji awal memakai USB laptop. | Konfirmasi adaptor saat menyiapkan catu daya mandiri. Cocokkan GPIO firmware dengan sambungan fisik serta uji urutan lampu dan OLED pada S03. |
-| Ikrom | Pembaruan inventaris sudah dirujuk dalam rekap dan log kegiatan. | Periksa rekap, push berkas Minggu 4, lalu ajukan kartu untuk review Nicy. |
+| Ikrom | Pembaruan inventaris sudah dirujuk dalam rekap dan log kegiatan. | Rekap Minggu 4 sudah di-push oleh Ikrom dan ditinjau Nicy. |
 
 ### Review PM
 
@@ -49,7 +50,7 @@ Catatan telaah awal mengikuti bukti pada 9 November 2026. Nicy mengisi keputusan
 - [`87b3443` — draf inventaris Dhani dan acuan tanggal pencatatan](https://github.com/Nicy24782057/KELOMPOK-10/commit/87b3443978af21637ef2c93f43c1a5001c7e4d7b)
 - [`41b7193` — penambahan contoh variabel lingkungan](https://github.com/Nicy24782057/KELOMPOK-10/commit/41b7193a0c6296235c7627d5e6c0da73cdfc96c9)
 
-**URL commit pelaporan Minggu 4** — **URL commit pelaporan Minggu 4** — [5225f17](https://github.com/Nicy24782057/KELOMPOK-10/commit/5225f17b2674beb85f7083ee532c6e144484c584).
+**URL commit pelaporan Minggu 4** — [5225f17](https://github.com/Nicy24782057/KELOMPOK-10/commit/5225f17b2674beb85f7083ee532c6e144484c584).
 
 ### Tindak lanjut dokumen Minggu 4
 
