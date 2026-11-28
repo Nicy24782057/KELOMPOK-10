@@ -8,7 +8,7 @@ Dokumen ini merangkum seluruh hasil pengamatan aktual data kalibrasi yang telah 
 
 ---
 
-## 1. Data Kalibrasi CCTV A (1) — Simpang APPI 2 (Jl. Menteri Supeno)
+## 1. Data Kalibrasi CCTV A  — Simpang APPI 2 (Jl. Menteri Supeno)
 
 * **Identitas Pengamatan:**
   * **Lokasi:** SIMPANG APPI 2 - JL. MENTRI SUPENO
@@ -65,7 +65,7 @@ Dokumen ini merangkum seluruh hasil pengamatan aktual data kalibrasi yang telah 
 
 ---
 
-## 2. Data Kalibrasi CCTV A (2) — Prapatan Pingit Jogjakarta
+## 2. Data Kalibrasi CCTV B  — Prapatan Pingit Jogjakarta
 
 * **Identitas Pengamatan:**
   * **Lokasi:** Prapatan Pingit Jogjakarta
