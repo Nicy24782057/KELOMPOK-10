@@ -40,7 +40,7 @@ Catatan telaah awal mengikuti bukti pada 9 November 2026. Nicy mengisi keputusan
 |---|---|
 | Tanggal dan bukti yang ditelaah | 9 November 2026. Laporan Putu mencatat MQTT standar dan TLS berhasil serta Node-RED dan InfluxDB dapat diakses di lingkungan lokal. Bukti Rizky menunjukkan YOLO11n dan YOLO11s berhasil dimuat sebagai kandidat di CPU. Draf inventaris tersedia sebagai acuan pemeriksaan komponen. |
 | Pembaruan 28 November 2026 | Daftar komponen Dhani dan konfirmasi tim sudah dirangkum dalam inventaris. Tim melaporkan semua LED menyala dan ESP32 mendapat daya USB dari laptop saat uji. Pengukuran transisi, konfirmasi sambungan GPIO, dan uji OLED mengikuti pemeriksaan S03. |
-| Keputusan kesiapan menuju Sprint 3 | **Menunggu review akhir.** Nicy mencatat tanggal, hasil yang diterima, dan tindak lanjut setelah memeriksa inventaris, rekap, dan log. |
+| Keputusan kesiapan menuju Sprint 3 | W04-T06 disetujui oleh Nicy Putra Pratama pada 28/11/2026. Bukti uji layanan lokal, pemuatan YOLO11n dan YOLO11s di CPU, serta inventaris komponen diterima. Putu melengkapi catatan versi Docker dan Compose. Ramdhani mengonfirmasi adaptor saat menyiapkan catu daya mandiri. Sprint 2 siap ditutup.   |
 
 ### Commit pelaporan
 
