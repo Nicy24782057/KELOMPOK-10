@@ -49,7 +49,7 @@ Catatan telaah awal mengikuti bukti pada 9 November 2026. Nicy mengisi keputusan
 - [`87b3443` — draf inventaris Dhani dan acuan tanggal pencatatan](https://github.com/Nicy24782057/KELOMPOK-10/commit/87b3443978af21637ef2c93f43c1a5001c7e4d7b)
 - [`41b7193` — penambahan contoh variabel lingkungan](https://github.com/Nicy24782057/KELOMPOK-10/commit/41b7193a0c6296235c7627d5e6c0da73cdfc96c9)
 
-**URL commit pelaporan Minggu 4** — Menunggu push Ikrom dan pemeriksaan Nicy atas commit yang memuat rekap hasil seluruh PIC.
+**URL commit pelaporan Minggu 4** — **URL commit pelaporan Minggu 4** — [5225f17](https://github.com/Nicy24782057/KELOMPOK-10/commit/5225f17b2674beb85f7083ee532c6e144484c584).
 
 ### Tindak lanjut dokumen Minggu 4
 
